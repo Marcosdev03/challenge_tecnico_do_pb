@@ -5,18 +5,23 @@ Resource   ../../variables/api_variables.robot
 Resource   ../../variables/global_variables.robot
 
 *** Keywords ***
+
+Status Deve Ser
+    [Arguments]    ${status_esperado}    ${response}
+    Should Be Equal As Strings    ${response.status_code}    ${status_esperado}
+    
 Obter Todas As Salas
-    ${response}=    GET    ${BASE_API_URL}${THEATERS_ENDPOINT}
+    ${response}=    GET    ${BASE_API_URL}${THEATERS_ENDPOINT}    expected_status=any
     RETURN    ${response}
 
 Obter Sala Por ID
     [Arguments]    ${id_sala}
-    ${response}=    GET    ${BASE_API_URL}${THEATERS_ENDPOINT}/${id_sala}
+    ${response}=    GET    ${BASE_API_URL}${THEATERS_ENDPOINT}/${id_sala}    expected_status=any
     RETURN    ${response}
 
 Obter Assentos Da Sala
     [Arguments]    ${id_sala}
-    ${response}=    GET    ${BASE_API_URL}${THEATERS_ENDPOINT}/${id_sala}/seats
+    ${response}=    GET    ${BASE_API_URL}${THEATERS_ENDPOINT}/${id_sala}/seats    expected_status=any
     RETURN    ${response}
 
 Criar Sala

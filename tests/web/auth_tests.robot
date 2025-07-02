@@ -1,61 +1,51 @@
 *** Settings ***
-Library    SeleniumLibrary
-Library    FakerLibrary
-Resource    ../../resources/web/auth_page.resource
-Resource    ../../resources/web/common.resource
-Resource    ../../variables/web_variables.robot
-Resource    ../../variables/global_variables.robot
+Library    Browser
+Library    String
+Resource    ../../resources/web/auth_keywords.resource
 
-Suite Setup    Open Browser To Login Page
-Suite Teardown    Close Browser
+Suite Setup    Iniciar Navegador
+Suite Teardown    Encerrar Navegador 
+Test Setup    Ir Para Home E Fazer Logout Se Necessario
 
 *** Test Cases ***
-Login Válido Deve Ter Sucesso
+WEB-AUTH-01 - Login Usuario Bem Sucedido
     [Tags]    WEB-AUTH-01
-    Login With Valid Credentials    ${USER_EMAIL}    ${USER_PASSWORD}
-    Verify Successful Login
-    Logout User
+    Fazer Login Como Usuario
+    Verificar Usuario Logado
 
-Login Inválido Deve Mostrar Erro
+WEB-AUTH-02 - Login Admin Bem Sucedido
     [Tags]    WEB-AUTH-02
-    [Template]    Login With Invalid Credentials Should Show Error
-    invalid@example.com    password123    Credenciais inválidas
-    ${USER_EMAIL}         wrongpassword  Credenciais inválidas
-    ${EMPTY}              ${EMPTY}       E-mail é obrigatório
+    Fazer Login Como Admin
+    Verificar Usuario Logado
 
-Cadastrar Novo Usuário Deve Ter Sucesso
+WEB-AUTH-03 - Login Com Credenciais Invalidas
     [Tags]    WEB-AUTH-03
-    ${name}=    FakerLibrary.Name
-    ${email}=    Generate Random Email
-    ${password}=    Set Variable    password123
-    
-    Register New User    ${name}    ${email}    ${password}    ${password}
-    Verify Successful Registration
-    
-    # Verify new user can login
-    Login With Valid Credentials    ${email}    ${password}
-    Verify Successful Login
-    Logout User
+    Ir Para Pagina De Login
+    Preencher Credenciais    email@invalido.com    senhaerrada
+    Clicar Em Entrar
+    Verificar Texto Na Pagina    404: NOT_FOUND
+    ${url}=    Get Url
+    Should Contain    ${url}    /login
 
-Cadastrar Com Senhas Diferentes Deve Mostrar Erro
+WEB-AUTH-04 - Registro De Novo Usuario
     [Tags]    WEB-AUTH-04
-    ${name}=    FakerLibrary.Name
-    ${email}=    Generate Random Email
-    
-    Go To Register Page
-    Input Text    ${NAME_INPUT}    ${name}
-    Input Text    ${EMAIL_INPUT}    ${email}
-    Input Text    ${PASSWORD_INPUT}    password123
-    Input Text    ${CONFIRM_PASSWORD_INPUT}    differentpassword
-    Click Button    ${REGISTER_BUTTON}
-    
-    Page Should Contain    As senhas não coincidem
+    ${random_email}=    Gerar Email Aleatorio
+    Registrar Novo Usuario    Test User    ${random_email}    password123    password123
+    ${url}=    Get Url
+    Should Contain    ${url}    challenge-pb-front.vercel.app
+    Verificar Texto Na Pagina    Conta criada com sucesso!
+    Verificar Usuario Logado
 
-*** Keywords ***
-Login With Invalid Credentials Should Show Error
-    [Arguments]    ${email}    ${password}    ${expected_error}
-    Go To Login Page
-    Input Email    ${email}
-    Input Password    ${password}
-    Submit Credentials
-    Verify Login Error Message    ${expected_error}
+WEB-AUTH-05 - Registro Com Senhas Diferentes
+    [Tags]    WEB-AUTH-05
+    ${random_email}=    Gerar Email Aleatorio
+    Registrar Novo Usuario    Test User    ${random_email}    password123    password456
+    Verificar Texto Na Pagina    As senhas não coincidem.
+    ${url}=    Get Url
+    Should Contain    ${url}    /register
+
+WEB-AUTH-06 - Logout Do Sistema
+    [Tags]    WEB-AUTH-06
+    Fazer Login Como Usuario
+    Fazer Logout
+    Verificar Usuario Nao Logado

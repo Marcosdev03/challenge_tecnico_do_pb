@@ -5,9 +5,10 @@ Resource   ../../variables/api_variables.robot
 Resource   ../../variables/global_variables.robot
 
 *** Keywords ***
+
 Criar Reserva
     [Arguments]    ${dados_reserva}
-    ${response}=    POST    ${BASE_API_URL}${RESERVATIONS_ENDPOINT}    json=${dados_reserva}
+    ${response}=    POST    ${BASE_API_URL}${RESERVATIONS_ENDPOINT}    json=${dados_reserva}    expected_status=any
     RETURN    ${response}
 
 Obter Reservas Do Usuario

@@ -5,6 +5,12 @@ Resource   ../../variables/api_variables.robot
 Resource   ../../variables/global_variables.robot
 
 *** Keywords ***
+
+Status Deve Ser
+    [Arguments]    ${status_esperado}    ${response}
+    Should Be Equal As Strings    ${response.status_code}    ${status_esperado}
+
+    
 Obter Sessoes Do Filme
     [Arguments]    ${id_filme}
     ${params}=    Create Dictionary    movie=${id_filme}
