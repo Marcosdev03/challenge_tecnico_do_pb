@@ -1,44 +1,38 @@
 *** Settings ***
-Library    SeleniumLibrary
-Resource    ../../resources/web/auth_page.resource
-Resource    ../../resources/web/common.resource
-Resource    ../../variables/web_variables.robot
+Library    Browser
+Resource    ../../resources/web/profile_keywords.resource
 
-Suite Setup    Open Browser To Login Page
-Test Setup     Login With Valid Credentials    ${USER_EMAIL}    ${USER_PASSWORD}
-Test Teardown  Logout User
-Suite Teardown    Close Browser
+Suite Setup    Iniciar Navegador
+Suite Teardown    Encerrar Navegador
+Test Setup    Ir Para Home E Fazer Logout Se Necessario
 
 *** Test Cases ***
-Visualizar Informações Do Perfil Deve Mostrar Dados
+WEB-PROF-01 - Visualizar Dados Do Perfil
     [Tags]    WEB-PROF-01
-    Go To Profile Page
-    ${current_name}=    Get Value    ${PROFILE_NAME_INPUT}
-    Should Not Be Empty    ${current_name}
-    Page Should Contain Element    ${EMAIL_INPUT}
-    Element Should Be Disabled    ${EMAIL_INPUT}
+    Fazer Login Como Usuario
+    Ir Para Pagina De Perfil
+    Verificar Pagina De Perfil Carregada
 
-Atualizar Nome Do Perfil Deve Salvar Alterações
+WEB-PROF-02 - Visualizar Reserva Existente
     [Tags]    WEB-PROF-02
-    Go To Profile Page
-    ${new_name}=    Set Variable    Updated Name
-    Input Text    ${PROFILE_NAME_INPUT}    ${new_name}
-    Click Button    ${SAVE_PROFILE_BUTTON}
-    Page Should Contain    Perfil atualizado com sucesso!
-    ${updated_name}=    Get Value    ${PROFILE_NAME_INPUT}
-    Should Be Equal    ${updated_name}    ${new_name}
+    Fazer Login Como Usuario
+    Visualizar Reservas Na Pagina De Perfil
+    Verificar Reserva Existente
 
-Visualizar Lista De Reservas Deve Mostrar Reservas Do Usuário
+WEB-PROF-03 - Campos Do Perfil Visiveis
     [Tags]    WEB-PROF-03
-    Go To Reservations Page
-    ${reservations}=    Get Element Count    ${RESERVATION_CARDS}
-    Run Keyword If    ${reservations} > 0
-    ...    Log    User has ${reservations} reservations
-    ...  ELSE
-    ...    Page Should Contain Element    ${NO_RESERVATIONS_MESSAGE}
+    Fazer Login Como Usuario
+    Ir Para Pagina De Perfil
+    ${page_text}=    Get Text    body
+    Should Contain    ${page_text}    Nome Completo
+    Should Contain    ${page_text}    E-mail
+    Should Contain    ${page_text}    Alterar Senha
 
-Acessar Rota Protegida Sem Login Deve Redirecionar
-    [Tags]    WEB-AUTH-06
-    Logout User
-    Go To Profile Page
-    Location Should Be    ${LOGIN_PAGE_URL}
+WEB-PROF-04 - Informacoes Da Reserva
+    [Tags]    WEB-PROF-04
+    Fazer Login Como Usuario
+    Visualizar Reservas Na Pagina De Perfil
+    ${page_text}=    Get Text    body
+    Should Contain    ${page_text}    25/06/2025
+    Should Contain    ${page_text}    14:00
+    Should Contain    ${page_text}    Assentos:A1

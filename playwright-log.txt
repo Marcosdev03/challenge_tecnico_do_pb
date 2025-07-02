@@ -1,0 +1,326 @@
+{"level":30,"time":"2025-07-02T21:27:37.975Z","pid":135288,"hostname":"marcos-550XDA","msg":"Listening on 127.0.0.1:47397"}
+(node:135288) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2025-07-02T21:27:38.069Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2025-07-02T21:27:38.564Z","pid":135288,"hostname":"marcos-550XDA","msg":"Adding browser to stack: chromium, version: 136.0.7103.25"}
+{"level":30,"time":"2025-07-02T21:27:38.573Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method newBrowser"}
+{"level":30,"time":"2025-07-02T21:27:38.573Z","pid":135288,"hostname":"marcos-550XDA","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2025-07-02T21:27:38.588Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method newContext"}
+{"level":30,"time":"2025-07-02T21:27:38.588Z","pid":135288,"hostname":"marcos-550XDA","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"width\":1920,\"height\":1080}}"}
+{"level":30,"time":"2025-07-02T21:27:38.589Z","pid":135288,"hostname":"marcos-550XDA","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-07-02T21:27:38.589Z","pid":135288,"hostname":"marcos-550XDA","msg":"Trace file: "}
+{"level":30,"time":"2025-07-02T21:27:38.608Z","pid":135288,"hostname":"marcos-550XDA","msg":"Changed active context"}
+{"level":30,"time":"2025-07-02T21:27:38.609Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method newContext"}
+{"level":30,"time":"2025-07-02T21:27:38.615Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method newPage"}
+{"level":30,"time":"2025-07-02T21:27:38.616Z","pid":135288,"hostname":"marcos-550XDA","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2025-07-02T21:27:38.775Z","pid":135288,"hostname":"marcos-550XDA","msg":"Video path: undefined"}
+{"level":30,"time":"2025-07-02T21:27:38.775Z","pid":135288,"hostname":"marcos-550XDA","msg":"Changed active page"}
+{"level":30,"time":"2025-07-02T21:27:39.060Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method newPage"}
+{"level":30,"time":"2025-07-02T21:27:39.073Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:39.265Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:39.280Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:39.358Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:40.374Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:40.375Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is disabled, return Locator: text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:40.430Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:40.440Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:40.514Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:40.530Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:40.531Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with a[href=\"/login\"] >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:40.785Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:40.823Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:40.826Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:40.904Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:40.931Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:40.934Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:40.973Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:40.993Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:40.995Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:41.077Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:41.096Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:41.096Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:41.125Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:41.139Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:41.139Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:41.216Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:41.237Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:41.237Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with button[type=\"submit\"] in page."}
+{"level":30,"time":"2025-07-02T21:27:41.345Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:41.353Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:41.354Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Login realizado com sucesso! in page."}
+{"level":30,"time":"2025-07-02T21:27:42.217Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.227Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.227Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:42.246Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.267Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.267Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Perfil in page."}
+{"level":30,"time":"2025-07-02T21:27:42.286Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.297Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.297Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:42.317Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.345Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.346Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Minhas Reservas in page."}
+{"level":30,"time":"2025-07-02T21:27:42.372Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:42.401Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:42.429Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:42.440Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:42.445Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:42.455Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:42.646Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:43.662Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:43.663Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is disabled, return Locator: text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:43.715Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:43.735Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:43.735Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:43.885Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:44.894Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:44.987Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:44.994Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:44.994Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with a[href=\"/login\"] >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:45.155Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:45.166Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.168Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:45.193Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.206Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.207Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:45.217Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.233Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:45.233Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:45.285Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:45.296Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.297Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:45.317Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.326Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:45.327Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:45.379Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:45.419Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:45.419Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with button[type=\"submit\"] in page."}
+{"level":30,"time":"2025-07-02T21:27:45.635Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:45.651Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:45.651Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Login realizado com sucesso! in page."}
+{"level":30,"time":"2025-07-02T21:27:46.054Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.060Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.060Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:46.070Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.093Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.093Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Perfil in page."}
+{"level":30,"time":"2025-07-02T21:27:46.114Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.142Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.142Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:46.169Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.189Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.189Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Minhas Reservas in page."}
+{"level":30,"time":"2025-07-02T21:27:46.221Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:46.263Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:46.277Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:46.287Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:46.291Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:46.299Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:46.427Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:47.438Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:47.438Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is disabled, return Locator: text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:47.485Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:47.502Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:47.502Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:47.649Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:48.659Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:48.799Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:48.807Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:48.808Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with a[href=\"/login\"] >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:49.001Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:49.008Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.009Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:49.015Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.044Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.045Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:49.086Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.117Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:49.117Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:49.164Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:49.183Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.183Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:49.210Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.220Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:49.220Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:49.316Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:49.334Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:49.335Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with button[type=\"submit\"] in page."}
+{"level":30,"time":"2025-07-02T21:27:49.716Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:49.737Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:49.738Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=404: NOT_FOUND in page."}
+{"level":30,"time":"2025-07-02T21:27:50.652Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:50.668Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:50.669Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:50.672Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:50.675Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:50.683Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:50.807Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:51.821Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:51.822Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is disabled, return Locator: text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:51.856Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:51.897Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:52.094Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:52.131Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:52.131Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Cadastrar >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:52.317Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:52.322Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.322Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T21:27:52.370Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.393Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.393Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T21:27:52.410Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.432Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.432Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T21:27:52.500Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.520Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.520Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:52.537Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.548Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.548Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:52.610Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.634Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.634Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:52.652Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.666Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.666Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:52.698Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.708Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.708Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=confirmPassword in page."}
+{"level":30,"time":"2025-07-02T21:27:52.721Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.726Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.727Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=confirmPassword in page."}
+{"level":30,"time":"2025-07-02T21:27:52.756Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:52.765Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:52.766Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with button[type=\"submit\"] in page."}
+{"level":30,"time":"2025-07-02T21:27:52.870Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:52.905Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:52.905Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Conta criada com sucesso! in page."}
+{"level":30,"time":"2025-07-02T21:27:53.805Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.824Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.825Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Perfil in page."}
+{"level":30,"time":"2025-07-02T21:27:53.837Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.866Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.867Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:53.881Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.900Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.901Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Minhas Reservas in page."}
+{"level":30,"time":"2025-07-02T21:27:53.930Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:53.950Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:53.999Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:54.007Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:54.023Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:54.052Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:54.253Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:55.281Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:55.281Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is disabled, return Locator: text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:55.333Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:55.380Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:55.513Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:55.523Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:55.523Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Cadastrar >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:55.709Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:55.723Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:55.724Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T21:27:55.758Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:55.800Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:55.800Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T21:27:55.831Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:55.837Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:55.844Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=name in page."}
+{"level":30,"time":"2025-07-02T21:27:55.946Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:55.963Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:55.964Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:55.974Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:55.985Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:55.986Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:56.032Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:56.049Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:56.049Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:56.074Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:56.109Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:56.109Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:56.142Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:56.159Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:56.159Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=confirmPassword in page."}
+{"level":30,"time":"2025-07-02T21:27:56.183Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:56.189Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:56.189Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=confirmPassword in page."}
+{"level":30,"time":"2025-07-02T21:27:56.212Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:56.230Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:56.231Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with button[type=\"submit\"] in page."}
+{"level":30,"time":"2025-07-02T21:27:56.317Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:56.331Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:56.331Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=As senhas não coincidem. in page."}
+{"level":30,"time":"2025-07-02T21:27:56.340Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:56.375Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:56.397Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:56.406Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:56.414Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:56.437Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:56.559Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:57.584Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:57.584Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is disabled, return Locator: text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:57.633Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getElementCount"}
+{"level":30,"time":"2025-07-02T21:27:57.671Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:57.816Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method goTo"}
+{"level":30,"time":"2025-07-02T21:27:57.839Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:57.843Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with a[href=\"/login\"] >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:58.012Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:58.038Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.038Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:58.063Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.074Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.074Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:58.084Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.110Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:58.111Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2025-07-02T21:27:58.168Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:58.186Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.186Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:58.213Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.227Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:58.227Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2025-07-02T21:27:58.322Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method fillText"}
+{"level":30,"time":"2025-07-02T21:27:58.336Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:58.337Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with button[type=\"submit\"] in page."}
+{"level":30,"time":"2025-07-02T21:27:58.468Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:58.473Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:58.474Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Login realizado com sucesso! in page."}
+{"level":30,"time":"2025-07-02T21:27:59.337Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.340Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.340Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:59.344Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.364Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method click"}
+{"level":30,"time":"2025-07-02T21:27:59.364Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Sair in page."}
+{"level":30,"time":"2025-07-02T21:27:59.477Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method click"}
+{"level":30,"time":"2025-07-02T21:27:59.481Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.481Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with a[href=\"/login\"] >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:59.492Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.510Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.510Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with a[href=\"/login\"] >> nth=0 in page."}
+{"level":30,"time":"2025-07-02T21:27:59.520Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.537Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.537Z","pid":135288,"hostname":"marcos-550XDA","msg":"Strict mode is enabled, find Locator with text=Cadastrar in page."}
+{"level":30,"time":"2025-07-02T21:27:59.565Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2025-07-02T21:27:59.579Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:59.585Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:59.598Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2025-07-02T21:27:59.624Z","pid":135288,"hostname":"marcos-550XDA","msg":"Removed page=55a62e6c-f0c5-4835-be3e-67bc9459a811 from context=62c4c0e6-54bc-44bf-9bdc-3b1758d0a8a4 page stack"}
+{"level":30,"time":"2025-07-02T21:27:59.938Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method closeBrowser"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/index.js:12226:15)
+    at PlaywrightServer.getActiveBrowser (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/index.js:13122:59)
+    at PlaywrightServer.setTimeout (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/index.js:13370:57)
+    at Object.onReceiveHalfClose (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server.js:1461:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:575:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:615:14)
+    at ServerHttp2Stream.<anonymous> (/home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:382:18)
+    at ServerHttp2Stream.emit (node:events:536:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2025-07-02T21:27:59.953Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:27:59.953Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2025-07-02T21:28:02.011Z","pid":135288,"hostname":"marcos-550XDA","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2025-07-02T21:28:02.011Z","pid":135288,"hostname":"marcos-550XDA","msg":"End of node method closeAllBrowsers"}

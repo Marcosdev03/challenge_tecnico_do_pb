@@ -1,0 +1,16 @@
+robot:
+  language-server:
+    python: python3
+    tcp-port: 0
+    args: []
+  lint:
+    enabled: false
+  problems:
+    enabled: false
+  completions:
+    keywords:
+      format: first
+      prefixImportName: false
+  libraries:
+    libdoc:
+      needsArgs: []

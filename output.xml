@@ -1,1305 +1,1429 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3 (Python 3.13.2 on linux)" generated="2025-07-01T21:09:57.401546" rpa="false" schemaversion="5">
-<suite id="s1" name="Theaters Tests" source="/media/marcos/MEU HD/challenge_tecnico_do_pb/tests/api/theaters_tests.robot">
-<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
-<msg time="2025-07-01T21:09:57.483159" level="INFO">Creating Session using : alias=api, url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>api</arg>
-<arg>${BASE_API_URL}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-07-01T21:09:57.482911" elapsed="0.001685"/>
+<robot generator="Robot 7.3 (Python 3.13.2 on linux)" generated="2025-07-02T18:27:36.941950" rpa="false" schemaversion="5">
+<suite id="s1" name="Auth Tests" source="/media/marcos/MEU HD/challenge_tecnico_do_pb/tests/web/auth_tests.robot">
+<kw name="Iniciar Navegador" owner="common_keywords" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-07-02T18:27:37.148763" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/media/marcos/MEU HD/challenge_tecnico_do_pb/browser/traces/temp/db6a0b21-5dd6-484a-b766-c617805264ae"}</msg>
+<msg time="2025-07-02T18:27:37.197192" level="INFO">Starting Browser process /home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/index.js using at 127.0.0.1:47397</msg>
+<msg time="2025-07-02T18:27:38.576419" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/media/marcos/MEU HD/challenge_tecnico_do_pb/browser/traces/temp/db6a0b21-5dd6-484a-b766-c617805264ae"}</msg>
+<arg>chromium</arg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-07-02T18:27:37.147723" elapsed="1.429328"/>
 </kw>
-<test id="s1-t1" name="Listar Todas As Salas Deve Retornar Lista" line="11">
-<kw name="Obter Todas As Salas" owner="theaters">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2025-07-01T21:09:57.805241" level="INFO">GET Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2025-07-01T21:09:57.806031" level="INFO">GET Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Age': '0', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Encoding': 'gzip', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:09:57 GMT', 'Etag': 'W/"1357-bxTNzHA5L8CnrqSRKEXnDw5NUXY"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::7knlc-1751414997556-195de5798560', 'X-Xss-Protection': '0', 'Transfer-Encoding': 'chunked'} 
- body={"success":true,"count":23,"data":[{"_id":"685c36ebd9cde28e50a462e9","name":"Sala 610 Remaster","capacity":150,"type":"standard","createdAt":"2025-06-25T17:50:35.901Z","updatedAt":"2025-06-25T17:57:42.902Z","__v":0,"id":"685c36ebd9cde28e50a462e9"},{"_id":"686191dcc0d35960528d4b46","name":"Theater 2","capacity":80,"type":"3D","createdAt":"2025-06-29T19:19:56.579Z","updatedAt":"2025-06-29T19:19:56.579Z","__v":0,"id":"686191dcc0d35960528d4b46"},{"_id":"6862a3cf121fff3ea289f346","name":"Sala 162","capacity":150,"type":"standard","createdAt":"2025-06-30T14:48:47.831Z","updatedAt":"2025-06-30T14:48:47.831Z","__v":0,"id":"6862a3cf121fff3ea289f346"},{"_id":"6862a41b121fff3ea289f386","name":"Sala 711 Remaster","capacity":150,"type":"standard","createdAt":"2025-06-30T14:50:03.861Z","updatedAt":"2025-06-30T14:50:04.760Z","__v":0,"id":"6862a41b121fff3ea289f386"},{"_id":"6862c29a0eb834f30ef4e23f","name":"Sala 487","capacity":150,"type":"standard","createdAt":"2025-06-30T17:00:10.311Z","updatedAt":"2025-06-30T17:00:10.311Z","__v":0,"id":"6862c29a0eb834f30ef4e23f"},{"_id":"68646fb0e16916371f808432","name":"Nova Sala","capacity":100,"type":"standard","createdAt":"2025-07-01T23:30:56.590Z","updatedAt":"2025-07-01T23:30:56.590Z","__v":0,"id":"68646fb0e16916371f808432"},{"_id":"6864725fb5432eb2fc480af3","name":"Nova Sala Teste","capacity":100,"type":"standard","createdAt":"2025-07-01T23:42:23.837Z","updatedAt":"2025-07-01T23:42:23.837Z","__v":0,"id":"6864725fb5432eb2fc480af3"},{"_id":"6864759a7b1cf327fcbde13f","name":"Nova Sala Debug","capacity":100,"type":"standard","createdAt":"2025-07-01T23:56:10.887Z","updatedAt":"2025-07-01T23:56:10.887Z","__v":0,"id":"6864759a7b1cf327fcbde13f"},{"_id":"6864759b7b1cf327fcbde142","name":"Sala Teste 2","capacity":50,"type":"standard","createdAt":"2025-07-01T23:56:11.328Z","updatedAt":"2025-07-01T23:56:11.328Z","__v":0,"id":"6864759b7b1cf327fcbde142"},{"_id":"686476187b1cf327fcbde147","name":"Sala Para Buscar","capacity":80,"type":"standard","createdAt":"2025-07-01T23:58:16.882Z","updatedAt":"2025-07-01T23:58:16.882Z","__v":0,"id":"686476187b1cf327fcbde147"},{"_id":"6864761a7b1cf327fcbde14d","name":"Sala Para Assentos","capacity":60,"type":"standard","createdAt":"2025-07-01T23:58:18.185Z","updatedAt":"2025-07-01T23:58:18.185Z","__v":0,"id":"6864761a7b1cf327fcbde14d"},{"_id":"6864761c7b1cf327fcbde157","name":"Sala Atualizada","capacity":150,"type":"standard","createdAt":"2025-07-01T23:58:20.913Z","updatedAt":"2025-07-01T23:58:21.489Z","__v":0,"id":"6864761c7b1cf327fcbde157"},{"_id":"686476e87b1cf327fcbde17b","name":"Sala Para Atualizar","capacity":100,"type":"standard","createdAt":"2025-07-02T00:01:44.558Z","updatedAt":"2025-07-02T00:01:44.558Z","__v":0,"id":"686476e87b1cf327fcbde17b"},{"_id":"6864780f7b1cf327fcbde1b6","name":"Teste 1","capacity":100,"type":"standard","createdAt":"2025-07-02T00:06:39.695Z","updatedAt":"2025-07-02T00:06:39.695Z","__v":0,"id":"6864780f7b1cf327fcbde1b6"},{"_id":"686478107b1cf327fcbde1b9","name":"Teste 2","capacity":100,"type":"standard","createdAt":"2025-07-02T00:06:40.134Z","updatedAt":"2025-07-02T00:06:40.134Z","__v":0,"id":"686478107b1cf327fcbde1b9"},{"_id":"686478107b1cf327fcbde1bc","name":"Teste 3","capacity":100,"type":"standard","createdAt":"2025-07-02T00:06:40.578Z","updatedAt":"2025-07-02T00:06:40.578Z","__v":0,"id":"686478107b1cf327fcbde1bc"},{"_id":"6864786d7b1cf327fcbde1c1","name":"Sala Para Buscar 20250701210813","capacity":80,"type":"standard","createdAt":"2025-07-02T00:08:13.788Z","updatedAt":"2025-07-02T00:08:13.788Z","__v":0,"id":"6864786d7b1cf327fcbde1c1"},{"_id":"6864786f7b1cf327fcbde1c7","name":"Sala Para Assentos 20250701210814","capacity":60,"type":"standard","createdAt":"2025-07-02T00:08:15.108Z","updatedAt":"2025-07-02T00:08:15.108Z","__v":0,"id":"6864786f7b1cf327fcbde1c7"},{"_id":"686478707b1cf327fcbde1cb","name":"Nova Sala Teste 20250701210815","capacity":100,"type":"standard","createdAt":"2025-07-02T00:08:16.192Z","updatedAt":"2025-07-02T00:08:16.192Z","__v":0,"id":"686478707b1cf327fcbde1cb"},{"_id":"686478c57b1cf327fcbde1e4","name":"Sala Para Buscar 20250701210941","capacity":80,"type":"standard","createdAt":"2025-07-02T00:09:41.803Z","updatedAt":"2025-07-02T00:09:41.803Z","__v":0,"id":"686478c57b1cf327fcbde1e4"},{"_id":"686478c77b1cf327fcbde1ea","name":"Sala Para Assentos 20250701210942","capacity":60,"type":"standard","createdAt":"2025-07-02T00:09:43.137Z","updatedAt":"2025-07-02T00:09:43.137Z","__v":0,"id":"686478c77b1cf327fcbde1ea"},{"_id":"686478c87b1cf327fcbde1ee","name":"Nova Sala Teste 20250701210943","capacity":100,"type":"standard","createdAt":"2025-07-02T00:09:44.207Z","updatedAt":"2025-07-02T00:09:44.207Z","__v":0,"id":"686478c87b1cf327fcbde1ee"},{"_id":"686478c97b1cf327fcbde1f4","name":"Sala Para Atualizar 20250701210945","capacity":100,"type":"standard","createdAt":"2025-07-02T00:09:45.893Z","updatedAt":"2025-07-02T00:09:45.893Z","__v":0,"id":"686478c97b1cf327fcbde1f4"}]} 
- </msg>
-<msg time="2025-07-01T21:09:57.806518" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2025-07-01T21:09:57.486144" elapsed="0.321201"/>
+<kw name="New Context" owner="Browser">
+<msg time="2025-07-02T18:27:38.583810" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  }
+}</msg>
+<msg time="2025-07-02T18:27:38.611413" level="INFO">Successfully created context. </msg>
+<msg time="2025-07-02T18:27:38.611826" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1920, 'height': 1080}}</msg>
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-07-02T18:27:38.578508" elapsed="0.033535"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:09:57.807713" elapsed="0.000287"/>
-</return>
-<msg time="2025-07-01T21:09:57.808442" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<status status="PASS" start="2025-07-01T21:09:57.485618" elapsed="0.322988"/>
+<kw name="New Page" owner="Browser">
+<msg time="2025-07-02T18:27:39.063061" level="INFO">Successfully initialized new page object and opened url: https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-07-02T18:27:38.612331" elapsed="0.451902"/>
 </kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:09:57.812540" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:09:57.810958" elapsed="0.002780"/>
+<status status="PASS" start="2025-07-02T18:27:37.146865" elapsed="1.917992"/>
 </kw>
-<arg>200</arg>
-<arg>${response}</arg>
-<status status="PASS" start="2025-07-01T21:09:57.809779" elapsed="0.004347"/>
+<test id="s1-t1" name="WEB-AUTH-01 - Login Usuario Bem Sucedido" line="11">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:39.361436" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:39.275862" elapsed="0.086410"/>
 </kw>
-<tag>THE-001</tag>
-<status status="PASS" start="2025-07-01T21:09:57.484883" elapsed="0.330913"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:40.364265" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:39.363453" elapsed="1.002630"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-02T18:27:40.434714" level="INFO">${logout_exists} = 0</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:40.367157" elapsed="0.067789"/>
+</kw>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:40.435628" elapsed="0.000173"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:40.435975" elapsed="0.000086"/>
+</kw>
+<status status="NOT RUN" start="2025-07-02T18:27:40.435151" elapsed="0.000973"/>
+</branch>
+<status status="PASS" start="2025-07-02T18:27:40.435115" elapsed="0.001079"/>
+</if>
+<status status="PASS" start="2025-07-02T18:27:39.275071" elapsed="1.161185"/>
+</kw>
+<kw name="Fazer Login Como Usuario" owner="auth_keywords">
+<kw name="Ir Para Pagina De Login" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:40.519252" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:40.437487" elapsed="0.083580"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:40.524612" level="INFO">Clicks the element 'a[href="/login"] &gt;&gt; nth=0'.</msg>
+<arg>a[href="/login"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:40.521826" elapsed="0.270301"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:40.912765" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:40.793354" elapsed="0.120101"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:40.437078" elapsed="0.477349"/>
+</kw>
+<kw name="Preencher Credenciais" owner="auth_keywords">
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:40.982440" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:40.920074" elapsed="0.063145"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:40.987379" level="INFO">Fills the text 'user@example.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:40.985691" elapsed="0.095084"/>
+</kw>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-02T18:27:40.918511" elapsed="0.163136"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:41.127559" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:41.082858" elapsed="0.046643"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:41.132926" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:41.129890" elapsed="0.095522"/>
+</kw>
+<arg>${LOGIN_PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-07-02T18:27:41.082100" elapsed="0.144886"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:40.915181" elapsed="0.312633"/>
+</kw>
+<kw name="Clicar Em Entrar" owner="auth_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:41.231876" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:41.230474" elapsed="0.117989"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:41.228542" elapsed="0.120223"/>
+</kw>
+<kw name="Verificar Login Bem Sucedido" owner="auth_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:42.220604" level="INFO">Waited for Element with selector text=Login realizado com sucesso! at state visible</msg>
+<arg>text=Login realizado com sucesso!</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:41.349605" elapsed="0.871683"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:42.252359" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:42.221898" elapsed="0.031443"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:41.349023" elapsed="0.905209"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:40.436560" elapsed="1.817932"/>
+</kw>
+<kw name="Verificar Usuario Logado" owner="auth_keywords">
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:42.288774" level="INFO">Waited for Element with selector text=Perfil at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:42.258515" elapsed="0.031124"/>
+</kw>
+<arg>${HEADER_PROFILE_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:42.257608" elapsed="0.032404"/>
+</kw>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:42.319649" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:42.292025" elapsed="0.029265"/>
+</kw>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<status status="PASS" start="2025-07-02T18:27:42.290424" elapsed="0.031128"/>
+</kw>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:42.373785" level="INFO">Waited for Element with selector text=Minhas Reservas at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:42.322605" elapsed="0.052536"/>
+</kw>
+<arg>${HEADER_RESERVATIONS_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:42.321875" elapsed="0.054120"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:42.255589" elapsed="0.120694"/>
+</kw>
+<tag>WEB-AUTH-01</tag>
+<status status="PASS" start="2025-07-02T18:27:39.065263" elapsed="3.322825"/>
 </test>
-<test id="s1-t2" name="Obter Sala Por ID Deve Retornar Detalhes" line="16">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:57.819404" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:57.818679" elapsed="0.000987"/>
+<test id="s1-t2" name="WEB-AUTH-02 - Login Admin Bem Sucedido" line="16">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:42.650754" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:42.449506" elapsed="0.201807"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:57.820745" level="INFO">${body} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:57.820031" elapsed="0.000945"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:43.652633" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:42.651699" elapsed="1.002145"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:09:58.231489" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
- body=b'{"email": "admin@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:09:58.231928" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '303', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:09:58 GMT', 'Etag': 'W/"12f-wK/izQ3JgsNAXYJ7VMcRHygKQ5w"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::ftnbq-1751414997888-706930a890d0', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4282","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OCwiZXhwIjoxNzUxNTAxMzk4fQ.7hv5SGOzBo8_gDh6YfZBWJzArf0oisl6ZSJqigZNyN0"}} 
- </msg>
-<msg time="2025-07-01T21:09:58.232287" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:09:57.821313" elapsed="0.411121"/>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-02T18:27:43.721506" level="INFO">${logout_exists} = 1</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:43.655066" elapsed="0.066922"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:09:58.232672" elapsed="0.000195"/>
-</return>
-<msg time="2025-07-01T21:09:58.233205" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${ADMIN_EMAIL}</arg>
-<arg>${ADMIN_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:09:57.817829" elapsed="0.415542"/>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:43.727850" level="INFO">Clicks the element 'text=Sair'.</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:43.725462" elapsed="0.160831"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:09:58.235077" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OCwiZXhwIjoxNzUxNTAxMzk4fQ.7hv5SGOzBo8_gDh6YfZBWJzArf0oisl6ZSJqigZNyN0</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.233770" elapsed="0.001553"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:44.887402" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:43.886670" elapsed="1.000989"/>
 </kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:09:58.236853" level="INFO">${timestamp} = 20250701210958</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.236141" elapsed="0.000945"/>
+<status status="PASS" start="2025-07-02T18:27:43.723803" elapsed="1.163969"/>
+</branch>
+<status status="PASS" start="2025-07-02T18:27:43.723476" elapsed="1.164388"/>
+</if>
+<status status="PASS" start="2025-07-02T18:27:42.447600" elapsed="2.440336"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:58.238995" level="INFO">${dados_sala} = {'name': 'Sala Para Buscar 20250701210958', 'capacity': '80'}</msg>
-<var>${dados_sala}</var>
-<arg>name=Sala Para Buscar ${timestamp}</arg>
-<arg>capacity=80</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.238059" elapsed="0.001233"/>
+<kw name="Fazer Login Como Admin" owner="auth_keywords">
+<kw name="Ir Para Pagina De Login" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:44.989147" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:44.889433" elapsed="0.100246"/>
 </kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:58.242260" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OCwiZXhwIjoxNzUxNTAxMzk4fQ.7hv5SGOzBo8_gDh6YfZBWJzArf0oisl6ZSJqigZNyN0'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.241395" elapsed="0.001221"/>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:44.991878" level="INFO">Clicks the element 'a[href="/login"] &gt;&gt; nth=0'.</msg>
+<arg>a[href="/login"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:44.990016" elapsed="0.166859"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:09:58.685851" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OCwiZXhwIjoxNzUxNTAxMzk4fQ.7hv5SGOzBo8_gDh6YfZBWJzArf0oisl6ZSJqigZNyN0', 'Content-Length': '61', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala Para Buscar 20250701210958", "capacity": "80"}' 
- </msg>
-<msg time="2025-07-01T21:09:58.686119" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=201, reason=Created 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '249', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:09:58 GMT', 'Etag': 'W/"f9-ZH1ZrS78pnr6gCFqxPzoWw7nTE4"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::h87p4-1751414998314-9953b4c01da8', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"name":"Sala Para Buscar 20250701210958","capacity":80,"type":"standard","_id":"686478d67b1cf327fcbde20a","createdAt":"2025-07-02T00:09:58.510Z","updatedAt":"2025-07-02T00:09:58.510Z","__v":0,"id":"686478d67b1cf327fcbde20a"}} 
- </msg>
-<msg time="2025-07-01T21:09:58.686342" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.243070" elapsed="0.443370"/>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:45.195662" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.157198" elapsed="0.039725"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:09:58.686757" elapsed="0.000228"/>
-</return>
-<msg time="2025-07-01T21:09:58.687397" level="INFO">${create_response} = &lt;Response [201]&gt;</msg>
-<var>${create_response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala}</arg>
-<status status="PASS" start="2025-07-01T21:09:58.240274" elapsed="0.447389"/>
+<status status="PASS" start="2025-07-02T18:27:44.888940" elapsed="0.308774"/>
 </kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:09:58.689934" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.688890" elapsed="0.001235"/>
+<kw name="Preencher Credenciais" owner="auth_keywords">
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:45.220311" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.200141" elapsed="0.021728"/>
 </kw>
-<arg>201</arg>
-<arg>${create_response}</arg>
-<status status="PASS" start="2025-07-01T21:09:58.688263" elapsed="0.001984"/>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:45.227535" level="INFO">Fills the text 'admin@example.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.224257" elapsed="0.064570"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:09:58.691383" level="INFO">${id_sala} = 686478d67b1cf327fcbde20a</msg>
-<var>${id_sala}</var>
-<arg>${create_response.json()['data']['_id']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.690602" elapsed="0.000955"/>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-02T18:27:45.199250" elapsed="0.090583"/>
 </kw>
-<kw name="Obter Sala Por ID" owner="theaters">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2025-07-01T21:09:59.125357" level="INFO">GET Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d67b1cf327fcbde20a 
- path_url=/api/v1/theaters/686478d67b1cf327fcbde20a 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2025-07-01T21:09:59.125563" level="INFO">GET Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d67b1cf327fcbde20a 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Age': '0', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '263', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:09:59 GMT', 'Etag': 'W/"107-fv9QPDVevNKu8lOiYTVUzn8yIqs"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::g5jgn-1751414998761-8c13d4b31ecd', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"686478d67b1cf327fcbde20a","name":"Sala Para Buscar 20250701210958","capacity":80,"type":"standard","createdAt":"2025-07-02T00:09:58.510Z","updatedAt":"2025-07-02T00:09:58.510Z","__v":0,"sessions":[],"id":"686478d67b1cf327fcbde20a"}} 
- </msg>
-<msg time="2025-07-01T21:09:59.125729" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}/${id_sala}</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2025-07-01T21:09:58.692490" elapsed="0.433301"/>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:45.318754" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.292007" elapsed="0.027139"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:09:59.125881" elapsed="0.000079"/>
-</return>
-<msg time="2025-07-01T21:09:59.126110" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${id_sala}</arg>
-<status status="PASS" start="2025-07-01T21:09:58.692061" elapsed="0.434115"/>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:45.321785" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.319702" elapsed="0.064260"/>
 </kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:09:59.127647" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.126958" elapsed="0.000861"/>
+<arg>${LOGIN_PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-07-02T18:27:45.290599" elapsed="0.094695"/>
 </kw>
-<arg>200</arg>
-<arg>${response}</arg>
-<status status="PASS" start="2025-07-01T21:09:59.126510" elapsed="0.001437"/>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:45.198318" elapsed="0.187268"/>
 </kw>
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${response.json()['data']}</arg>
-<arg>name</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.128226" elapsed="0.000812"/>
+<kw name="Clicar Em Entrar" owner="auth_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:45.396501" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.388505" elapsed="0.249787"/>
 </kw>
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${response.json()['data']}</arg>
-<arg>capacity</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.129360" elapsed="0.000843"/>
+<status status="PASS" start="2025-07-02T18:27:45.386276" elapsed="0.252851"/>
 </kw>
-<tag>THE-002</tag>
-<status status="PASS" start="2025-07-01T21:09:57.816860" elapsed="1.313708"/>
+<kw name="Verificar Login Bem Sucedido" owner="auth_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:46.055075" level="INFO">Waited for Element with selector text=Login realizado com sucesso! at state visible</msg>
+<arg>text=Login realizado com sucesso!</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:45.646524" elapsed="0.408939"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:46.082219" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:46.055716" elapsed="0.027439"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:45.642134" elapsed="0.441321"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:44.888352" elapsed="1.195221"/>
+</kw>
+<kw name="Verificar Usuario Logado" owner="auth_keywords">
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:46.133904" level="INFO">Waited for Element with selector text=Perfil at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:46.086915" elapsed="0.048687"/>
+</kw>
+<arg>${HEADER_PROFILE_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:46.085471" elapsed="0.051330"/>
+</kw>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:46.172703" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:46.138977" elapsed="0.034736"/>
+</kw>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<status status="PASS" start="2025-07-02T18:27:46.137257" elapsed="0.036927"/>
+</kw>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:46.230010" level="INFO">Waited for Element with selector text=Minhas Reservas at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:46.178549" elapsed="0.052536"/>
+</kw>
+<arg>${HEADER_RESERVATIONS_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:46.174642" elapsed="0.057062"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:46.084817" elapsed="0.148404"/>
+</kw>
+<tag>WEB-AUTH-02</tag>
+<status status="PASS" start="2025-07-02T18:27:42.432697" elapsed="3.801441"/>
 </test>
-<test id="s1-t3" name="Obter Assentos Da Sala Deve Retornar Mapa" line="32">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:59.132785" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.132409" elapsed="0.000496"/>
+<test id="s1-t3" name="WEB-AUTH-03 - Login Com Credenciais Invalidas" line="21">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:46.429642" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:46.295498" elapsed="0.134665"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:59.133283" level="INFO">${body} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.133045" elapsed="0.000309"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:47.433178" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:46.431058" elapsed="1.003177"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:09:59.543148" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
- body=b'{"email": "admin@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:09:59.543480" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '303', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:09:59 GMT', 'Etag': 'W/"12f-ommJtfCHWSKWPGYoDj0LkjKy3x4"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::q4mtx-1751414999202-d2d97ce8e592', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4282","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OSwiZXhwIjoxNzUxNTAxMzk5fQ.KbyhLejdKL4wCJZpHLkBIpH4JNeaHP8sEBgUz-eHIEE"}} 
- </msg>
-<msg time="2025-07-01T21:09:59.543758" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.133465" elapsed="0.410390"/>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-02T18:27:47.492385" level="INFO">${logout_exists} = 1</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:47.434678" elapsed="0.057972"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:09:59.544000" elapsed="0.000127"/>
-</return>
-<msg time="2025-07-01T21:09:59.544663" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${ADMIN_EMAIL}</arg>
-<arg>${ADMIN_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:09:59.131857" elapsed="0.412926"/>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:47.495487" level="INFO">Clicks the element 'text=Sair'.</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:47.493493" elapsed="0.156765"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:09:59.546278" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OSwiZXhwIjoxNzUxNTAxMzk5fQ.KbyhLejdKL4wCJZpHLkBIpH4JNeaHP8sEBgUz-eHIEE</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.545456" elapsed="0.001007"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:48.651182" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:47.650558" elapsed="1.001519"/>
 </kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:09:59.547203" level="INFO">${timestamp} = 20250701210959</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.546805" elapsed="0.000541"/>
+<status status="PASS" start="2025-07-02T18:27:47.492920" elapsed="1.159479"/>
+</branch>
+<status status="PASS" start="2025-07-02T18:27:47.492870" elapsed="1.159681"/>
+</if>
+<status status="PASS" start="2025-07-02T18:27:46.294162" elapsed="2.358499"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:59.549135" level="INFO">${dados_sala} = {'name': 'Sala Para Assentos 20250701210959', 'capacity': '60'}</msg>
-<var>${dados_sala}</var>
-<arg>name=Sala Para Assentos ${timestamp}</arg>
-<arg>capacity=60</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.548551" elapsed="0.000731"/>
+<kw name="Ir Para Pagina De Login" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:48.800737" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:48.654414" elapsed="0.146870"/>
 </kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:09:59.551629" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OSwiZXhwIjoxNzUxNTAxMzk5fQ.KbyhLejdKL4wCJZpHLkBIpH4JNeaHP8sEBgUz-eHIEE'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.550911" elapsed="0.000895"/>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:48.803871" level="INFO">Clicks the element 'a[href="/login"] &gt;&gt; nth=0'.</msg>
+<arg>a[href="/login"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:48.801650" elapsed="0.201090"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:00.013536" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNDk5OSwiZXhwIjoxNzUxNTAxMzk5fQ.KbyhLejdKL4wCJZpHLkBIpH4JNeaHP8sEBgUz-eHIEE', 'Content-Length': '63', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala Para Assentos 20250701210959", "capacity": "60"}' 
- </msg>
-<msg time="2025-07-01T21:10:00.013823" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=201, reason=Created 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '251', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:09:59 GMT', 'Etag': 'W/"fb-a6d2F81KEh+1xg1/8/UqhHvrVg4"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::fc2lj-1751414999632-f2289080db5b', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"name":"Sala Para Assentos 20250701210959","capacity":60,"type":"standard","_id":"686478d77b1cf327fcbde210","createdAt":"2025-07-02T00:09:59.840Z","updatedAt":"2025-07-02T00:09:59.840Z","__v":0,"id":"686478d77b1cf327fcbde210"}} 
- </msg>
-<msg time="2025-07-01T21:10:00.015016" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:09:59.552010" elapsed="0.464462"/>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:49.017417" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.003189" elapsed="0.014771"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:00.018624" elapsed="0.002993"/>
-</return>
-<msg time="2025-07-01T21:10:00.026123" level="INFO">${create_response} = &lt;Response [201]&gt;</msg>
-<var>${create_response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala}</arg>
-<status status="PASS" start="2025-07-01T21:09:59.550376" elapsed="0.477196"/>
+<status status="PASS" start="2025-07-02T18:27:48.653488" elapsed="0.364793"/>
 </kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.031627" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.030846" elapsed="0.001026"/>
+<kw name="Preencher Credenciais" owner="auth_keywords">
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:49.096561" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.034011" elapsed="0.064036"/>
 </kw>
-<arg>201</arg>
-<arg>${create_response}</arg>
-<status status="PASS" start="2025-07-01T21:10:00.030232" elapsed="0.001817"/>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:49.104004" level="INFO">Fills the text 'email@invalido.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.103109" elapsed="0.067533"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.033805" level="INFO">${id_sala} = 686478d77b1cf327fcbde210</msg>
-<var>${id_sala}</var>
-<arg>${create_response.json()['data']['_id']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.032649" elapsed="0.001331"/>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-02T18:27:49.032075" elapsed="0.139278"/>
 </kw>
-<kw name="Obter Assentos Da Sala" owner="theaters">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:00.247302" level="INFO">GET Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d77b1cf327fcbde210/seats 
- path_url=/api/v1/theaters/686478d77b1cf327fcbde210/seats 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2025-07-01T21:10:00.247602" level="INFO">GET Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d77b1cf327fcbde210/seats 
- status=404, reason=Not Found 
- headers={'Access-Control-Allow-Origin': '*', 'Age': '0', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '102', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:00 GMT', 'Etag': 'W/"66-YFOKLCHKyl16VTLs2VtAVxhpVU0"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::2xnhp-1751415000103-45bae3cca6ee', 'X-Xss-Protection': '0'} 
- body={"success":false,"message":"Not Found - /api/v1/theaters/686478d77b1cf327fcbde210/seats","stack":null} 
- </msg>
-<msg time="2025-07-01T21:10:00.247847" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d77b1cf327fcbde210/seats</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}/${id_sala}/seats</arg>
-<doc>Sends a GET request.</doc>
-<status status="FAIL" start="2025-07-01T21:10:00.035069" elapsed="0.214944">HTTPError: 404 Client Error: Not Found for url: https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d77b1cf327fcbde210/seats</status>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:49.215010" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.174761" elapsed="0.041154"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="NOT RUN" start="2025-07-01T21:10:00.250212" elapsed="0.000079"/>
-</return>
-<var>${response}</var>
-<arg>${id_sala}</arg>
-<status status="FAIL" start="2025-07-01T21:10:00.034455" elapsed="0.216267">HTTPError: 404 Client Error: Not Found for url: https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d77b1cf327fcbde210/seats</status>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:49.217735" level="INFO">Fills the text 'senhaerrada' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.216527" elapsed="0.103148"/>
 </kw>
-<kw name="Status Deve Ser" owner="auth">
-<arg>200</arg>
-<arg>${response}</arg>
-<status status="NOT RUN" start="2025-07-01T21:10:00.251058" elapsed="0.000095"/>
+<arg>${LOGIN_PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-07-02T18:27:49.172729" elapsed="0.147349"/>
 </kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${response.json()}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2025-07-01T21:10:00.251449" elapsed="0.000106"/>
+<arg>email@invalido.com</arg>
+<arg>senhaerrada</arg>
+<status status="PASS" start="2025-07-02T18:27:49.018904" elapsed="0.302433"/>
 </kw>
-<tag>THE-002</tag>
-<status status="FAIL" start="2025-07-01T21:09:59.131178" elapsed="1.120615">HTTPError: 404 Client Error: Not Found for url: https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478d77b1cf327fcbde210/seats</status>
-</test>
-<test id="s1-t4" name="Admin Criar Nova Sala Deve Ter Sucesso" line="47">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.253658" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.253414" elapsed="0.000348"/>
+<kw name="Clicar Em Entrar" owner="auth_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:49.327932" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.326287" elapsed="0.391872"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.254587" level="INFO">${body} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.254054" elapsed="0.000741"/>
+<status status="PASS" start="2025-07-02T18:27:49.322581" elapsed="0.396339"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:00.667959" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
- body=b'{"email": "admin@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:10:00.668142" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '303', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:00 GMT', 'Etag': 'W/"12f-qlFXpyFFlJEqAg42CRCDslDJJxw"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::rxsjr-1751415000323-94479ca31f6f', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4282","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMCwiZXhwIjoxNzUxNTAxNDAwfQ.nOS0zHNFzQO12Kq6aUj0xZFjO39W6HY6cKxul31pL9Q"}} 
- </msg>
-<msg time="2025-07-01T21:10:00.668294" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.255080" elapsed="0.413274"/>
+<kw name="Verificar Texto Na Pagina" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:50.653167" level="INFO">Waited for Element with selector text=404: NOT_FOUND at state visible</msg>
+<arg>text=${texto}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:49.725498" elapsed="0.928259"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:00.668448" elapsed="0.000078"/>
-</return>
-<msg time="2025-07-01T21:10:00.668672" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${ADMIN_EMAIL}</arg>
-<arg>${ADMIN_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:10:00.252921" elapsed="0.415812"/>
+<arg>404: NOT_FOUND</arg>
+<status status="PASS" start="2025-07-02T18:27:49.722138" elapsed="0.931952"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.669411" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMCwiZXhwIjoxNzUxNTAxNDAwfQ.nOS0zHNFzQO12Kq6aUj0xZFjO39W6HY6cKxul31pL9Q</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.668938" elapsed="0.000565"/>
-</kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:10:00.669875" level="INFO">${timestamp} = 20250701211000</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.669677" elapsed="0.000264"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.670444" level="INFO">${dados_sala} = {'name': 'Nova Sala Teste 20250701211000', 'capacity': '100'}</msg>
-<var>${dados_sala}</var>
-<arg>name=Nova Sala Teste ${timestamp}</arg>
-<arg>capacity=100</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.670176" elapsed="0.000347"/>
-</kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:00.671266" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMCwiZXhwIjoxNzUxNTAxNDAwfQ.nOS0zHNFzQO12Kq6aUj0xZFjO39W6HY6cKxul31pL9Q'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.671073" elapsed="0.000266"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:01.101862" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMCwiZXhwIjoxNzUxNTAxNDAwfQ.nOS0zHNFzQO12Kq6aUj0xZFjO39W6HY6cKxul31pL9Q', 'Content-Length': '61', 'Content-Type': 'application/json'} 
- body=b'{"name": "Nova Sala Teste 20250701211000", "capacity": "100"}' 
- </msg>
-<msg time="2025-07-01T21:10:01.102227" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=201, reason=Created 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '249', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:01 GMT', 'Etag': 'W/"f9-Gh0VQG9F4GBBU8yAZwP5G6pf2Ho"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::jvx7g-1751415000736-afa6becb577a', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"name":"Nova Sala Teste 20250701211000","capacity":100,"type":"standard","_id":"686478d87b1cf327fcbde214","createdAt":"2025-07-02T00:10:00.926Z","updatedAt":"2025-07-02T00:10:00.926Z","__v":0,"id":"686478d87b1cf327fcbde214"}} 
- </msg>
-<msg time="2025-07-01T21:10:01.102621" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:00.671441" elapsed="0.431327"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:01.102885" elapsed="0.000084"/>
-</return>
-<msg time="2025-07-01T21:10:01.103127" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala}</arg>
-<status status="PASS" start="2025-07-01T21:10:00.670767" elapsed="0.432451"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.104933" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.104165" elapsed="0.000939"/>
-</kw>
-<arg>201</arg>
-<arg>${response}</arg>
-<status status="PASS" start="2025-07-01T21:10:01.103707" elapsed="0.001559"/>
-</kw>
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${response.json()['data']}</arg>
-<arg>_id</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.105582" elapsed="0.000800"/>
-</kw>
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${response.json()['data']}</arg>
-<arg>name</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.106734" elapsed="0.000705"/>
-</kw>
-<tag>THE-003</tag>
-<status status="PASS" start="2025-07-01T21:10:00.252347" elapsed="0.855339"/>
-</test>
-<test id="s1-t5" name="Usuário Comum Tentar Criar Sala Deve Falhar" line="58">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.109595" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.109328" elapsed="0.000393"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.110204" level="INFO">${body} = {'email': 'user@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.109892" elapsed="0.000419"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:01.512260" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '56'} 
- body=b'{"email": "user@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:10:01.512476" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '308', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:01 GMT', 'Etag': 'W/"134-D1o1pzUntjL0T2zPmX80AwfXGSo"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::nb4ls-1751415001175-329d3927ebab', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4283","name":"Updated Name Only","email":"user@example.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MyIsImlhdCI6MTc1MTQxNTAwMSwiZXhwIjoxNzUxNTAxNDAxfQ.INeWPev9cZ2tXLazjUNfwd1Drm_086mFDpAiMuouLDM"}} 
- </msg>
-<msg time="2025-07-01T21:10:01.512616" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.110458" elapsed="0.402240"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:01.512803" elapsed="0.000076"/>
-</return>
-<msg time="2025-07-01T21:10:01.513007" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${USER_EMAIL}</arg>
-<arg>${USER_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:10:01.108950" elapsed="0.404110"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.513755" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MyIsImlhdCI6MTc1MTQxNTAwMSwiZXhwIjoxNzUxNTAxNDAxfQ.INeWPev9cZ2tXLazjUNfwd1Drm_086mFDpAiMuouLDM</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.513240" elapsed="0.000612"/>
-</kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:10:01.514245" level="INFO">${timestamp} = 20250701211001</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.514023" elapsed="0.000320"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.514864" level="INFO">${dados_sala} = {'name': 'Sala Não Autorizada 20250701211001', 'capacity': '50'}</msg>
-<var>${dados_sala}</var>
-<arg>name=Sala Não Autorizada ${timestamp}</arg>
-<arg>capacity=50</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.514538" elapsed="0.000428"/>
-</kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.515679" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MyIsImlhdCI6MTc1MTQxNTAwMSwiZXhwIjoxNzUxNTAxNDAxfQ.INeWPev9cZ2tXLazjUNfwd1Drm_086mFDpAiMuouLDM'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.515472" elapsed="0.000288"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:01.828325" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MyIsImlhdCI6MTc1MTQxNTAwMSwiZXhwIjoxNzUxNTAxNDAxfQ.INeWPev9cZ2tXLazjUNfwd1Drm_086mFDpAiMuouLDM', 'Content-Length': '69', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala N\\u00e3o Autorizada 20250701211001", "capacity": "50"}' 
- </msg>
-<msg time="2025-07-01T21:10:01.828522" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=403, reason=Forbidden 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '83', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:01 GMT', 'Etag': 'W/"53-HQ7D0c09eB4A2u3nNjjh5szO0JM"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::kt6pt-1751415001581-1b500ebe1a47', 'X-Xss-Protection': '0'} 
- body={"success":false,"message":"User role user is not authorized to access this route"} 
- </msg>
-<msg time="2025-07-01T21:10:01.828800" level="INFO">${response} = &lt;Response [403]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.515868" elapsed="0.313030"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:01.828998" elapsed="0.000081"/>
-</return>
-<msg time="2025-07-01T21:10:01.829256" level="INFO">${response} = &lt;Response [403]&gt;</msg>
-<var>${response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala}</arg>
-<status status="PASS" start="2025-07-01T21:10:01.515191" elapsed="0.314166"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.830899" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.830286" elapsed="0.000764"/>
-</kw>
-<arg>403</arg>
-<arg>${response}</arg>
-<status status="PASS" start="2025-07-01T21:10:01.829819" elapsed="0.001335"/>
-</kw>
-<kw name="Dictionary Should Contain Value" owner="Collections">
-<arg>${response.json()}</arg>
-<arg>User role user is not authorized to access this route</arg>
-<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.831393" elapsed="0.000615"/>
-</kw>
-<tag>THE-004</tag>
-<status status="PASS" start="2025-07-01T21:10:01.108400" elapsed="0.724017"/>
-</test>
-<test id="s1-t6" name="Admin Atualizar Sala Deve Ter Sucesso" line="68">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.834402" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.834076" elapsed="0.000479"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:01.835127" level="INFO">${body} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.834768" elapsed="0.000467"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:02.243288" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
- body=b'{"email": "admin@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:10:02.243467" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '303', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:02 GMT', 'Etag': 'W/"12f-UQU6tpl9ua2h/ka300bJsDlhMrg"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::g7bcn-1751415001901-75b473d60002', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4282","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMiwiZXhwIjoxNzUxNTAxNDAyfQ.LEIJhcm8_fzM2DX7G_yy6ais3bcCXNoRM57yfAzdmJg"}} 
- </msg>
-<msg time="2025-07-01T21:10:02.243618" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:01.835390" elapsed="0.408293"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:02.243782" elapsed="0.000076"/>
-</return>
-<msg time="2025-07-01T21:10:02.243989" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${ADMIN_EMAIL}</arg>
-<arg>${ADMIN_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:10:01.833592" elapsed="0.410452"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.244677" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMiwiZXhwIjoxNzUxNTAxNDAyfQ.LEIJhcm8_fzM2DX7G_yy6ais3bcCXNoRM57yfAzdmJg</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.244220" elapsed="0.000547"/>
-</kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:10:02.245123" level="INFO">${timestamp} = 20250701211002</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.244928" elapsed="0.000264"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.245537" level="INFO">${dados_sala_inicial} = {'name': 'Sala Para Atualizar 20250701211002', 'capacity': '100'}</msg>
-<var>${dados_sala_inicial}</var>
-<arg>name=Sala Para Atualizar ${timestamp}</arg>
-<arg>capacity=100</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.245320" elapsed="0.000281"/>
-</kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.246224" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMiwiZXhwIjoxNzUxNTAxNDAyfQ.LEIJhcm8_fzM2DX7G_yy6ais3bcCXNoRM57yfAzdmJg'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.246043" elapsed="0.000250"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:02.677415" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMiwiZXhwIjoxNzUxNTAxNDAyfQ.LEIJhcm8_fzM2DX7G_yy6ais3bcCXNoRM57yfAzdmJg', 'Content-Length': '65', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala Para Atualizar 20250701211002", "capacity": "100"}' 
- </msg>
-<msg time="2025-07-01T21:10:02.677763" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=201, reason=Created 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '253', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:02 GMT', 'Etag': 'W/"fd-zZ55CHuT3pzF8rqO5rMeMgSFWR4"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::5pc6p-1751415002314-003cba3ab58c', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"name":"Sala Para Atualizar 20250701211002","capacity":100,"type":"standard","_id":"686478da7b1cf327fcbde21a","createdAt":"2025-07-02T00:10:02.502Z","updatedAt":"2025-07-02T00:10:02.502Z","__v":0,"id":"686478da7b1cf327fcbde21a"}} 
- </msg>
-<msg time="2025-07-01T21:10:02.679367" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.246390" elapsed="0.433174"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:02.680161" elapsed="0.003602"/>
-</return>
-<msg time="2025-07-01T21:10:02.684145" level="INFO">${create_response} = &lt;Response [201]&gt;</msg>
-<var>${create_response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala_inicial}</arg>
-<status status="PASS" start="2025-07-01T21:10:02.245779" elapsed="0.438500"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.687892" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.687058" elapsed="0.001059"/>
-</kw>
-<arg>201</arg>
-<arg>${create_response}</arg>
-<status status="PASS" start="2025-07-01T21:10:02.686455" elapsed="0.001829"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.689429" level="INFO">${id_sala} = 686478da7b1cf327fcbde21a</msg>
-<var>${id_sala}</var>
-<arg>${create_response.json()['data']['_id']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.688638" elapsed="0.000954"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.691801" level="INFO">${dados_sala_atualizada} = {'name': 'Sala Atualizada', 'capacity': '150'}</msg>
-<var>${dados_sala_atualizada}</var>
-<arg>name=Sala Atualizada</arg>
-<arg>capacity=150</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.691303" elapsed="0.000668"/>
-</kw>
-<kw name="Atualizar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:02.693255" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMiwiZXhwIjoxNzUxNTAxNDAyfQ.LEIJhcm8_fzM2DX7G_yy6ais3bcCXNoRM57yfAzdmJg'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.692876" elapsed="0.000531"/>
-</kw>
-<kw name="Replace String" owner="String">
-<msg time="2025-07-01T21:10:02.695904" level="INFO">${url} = /theaters/686478da7b1cf327fcbde21a</msg>
+<kw name="Get Url" owner="Browser">
+<msg time="2025-07-02T18:27:50.660616" level="INFO">${url} = https://challenge-pb-front.vercel.app/login</msg>
 <var>${url}</var>
-<arg>${THEATERS_ID_ENDPOINT}</arg>
-<arg>{id}</arg>
-<arg>${id_sala}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.693619" elapsed="0.002536"/>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2025-07-02T18:27:50.654666" elapsed="0.006426"/>
 </kw>
-<kw name="PUT" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:03.247974" level="INFO">PUT Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478da7b1cf327fcbde21a 
- path_url=/api/v1/theaters/686478da7b1cf327fcbde21a 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMiwiZXhwIjoxNzUxNTAxNDAyfQ.LEIJhcm8_fzM2DX7G_yy6ais3bcCXNoRM57yfAzdmJg', 'Content-Length': '46', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala Atualizada", "capacity": "150"}' 
- </msg>
-<msg time="2025-07-01T21:10:03.248465" level="INFO">PUT Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478da7b1cf327fcbde21a 
- status=400, reason=Bad Request 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '94', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:03 GMT', 'Etag': 'W/"5e-FoqOQ6ooCfr4sGcZ4ry1MgUB7N8"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::d85hj-1751415002764-fb93f91dbceb', 'X-Xss-Protection': '0'} 
- body={"success":false,"message":"Duplicate field value entered","field":{"name":"Sala Atualizada"}} 
- </msg>
-<msg time="2025-07-01T21:10:03.248795" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${url}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a PUT request.</doc>
-<status status="PASS" start="2025-07-01T21:10:02.696434" elapsed="0.552496"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/login</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-02T18:27:50.661637" elapsed="0.000854"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:03.249083" elapsed="0.000130"/>
-</return>
-<msg time="2025-07-01T21:10:03.249458" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<var>${response}</var>
-<arg>${token}</arg>
-<arg>${id_sala}</arg>
-<arg>${dados_sala_atualizada}</arg>
-<status status="PASS" start="2025-07-01T21:10:02.692325" elapsed="0.557227"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:03.254693" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<msg time="2025-07-01T21:10:03.254967" level="FAIL">400 != 200</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="FAIL" start="2025-07-01T21:10:03.253827" elapsed="0.004143">400 != 200</status>
-</kw>
-<arg>200</arg>
-<arg>${response}</arg>
-<status status="FAIL" start="2025-07-01T21:10:03.252320" elapsed="0.005927">400 != 200</status>
-</kw>
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${response.json()['data']}</arg>
-<arg>name</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="NOT RUN" start="2025-07-01T21:10:03.262974" elapsed="0.000208"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${response.json()['data']['name']}</arg>
-<arg>Sala Atualizada</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2025-07-01T21:10:03.263432" elapsed="0.000080"/>
-</kw>
-<tag>THE-005</tag>
-<status status="FAIL" start="2025-07-01T21:10:01.833034" elapsed="1.430675">400 != 200</status>
+<tag>WEB-AUTH-03</tag>
+<status status="PASS" start="2025-07-02T18:27:46.281079" elapsed="4.382150"/>
 </test>
-<test id="s1-t7" name="Admin Deletar Sala Vazia Deve Ter Sucesso" line="85">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:03.265419" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.265100" elapsed="0.000470"/>
+<test id="s1-t4" name="WEB-AUTH-04 - Registro De Novo Usuario" line="30">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:50.809270" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:50.680414" elapsed="0.129277"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:03.266198" level="INFO">${body} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.265807" elapsed="0.000523"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:51.811377" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:50.809966" elapsed="1.004818"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:03.692291" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
- body=b'{"email": "admin@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:10:03.692671" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '303', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:03 GMT', 'Etag': 'W/"12f-vZWtoFjiGwfH2GBPD6/4HqmFF0c"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::67kqr-1751415003335-b716829d2fb0', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4282","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMywiZXhwIjoxNzUxNTAxNDAzfQ.EiaXzYtwQY4aw3WjQUCHS-nXKbiOIE_DFExg9BOAEDk"}} 
- </msg>
-<msg time="2025-07-01T21:10:03.692901" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.266522" elapsed="0.426452"/>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-02T18:27:51.859270" level="INFO">${logout_exists} = 0</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:51.815423" elapsed="0.044539"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:03.693073" elapsed="0.000080"/>
-</return>
-<msg time="2025-07-01T21:10:03.693296" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${ADMIN_EMAIL}</arg>
-<arg>${ADMIN_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:10:03.264563" elapsed="0.428797"/>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:51.862901" elapsed="0.000757"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:03.694471" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMywiZXhwIjoxNzUxNTAxNDAzfQ.EiaXzYtwQY4aw3WjQUCHS-nXKbiOIE_DFExg9BOAEDk</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.693740" elapsed="0.000872"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:51.864209" elapsed="0.000340"/>
 </kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:10:03.695264" level="INFO">${timestamp} = 20250701211003</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.694964" elapsed="0.000400"/>
+<status status="NOT RUN" start="2025-07-02T18:27:51.860798" elapsed="0.003935"/>
+</branch>
+<status status="PASS" start="2025-07-02T18:27:51.860677" elapsed="0.004200"/>
+</if>
+<status status="PASS" start="2025-07-02T18:27:50.679196" elapsed="1.185814"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:03.696048" level="INFO">${dados_sala} = {'name': 'Sala Para Deletar 20250701211003', 'capacity': '50'}</msg>
-<var>${dados_sala}</var>
-<arg>name=Sala Para Deletar ${timestamp}</arg>
-<arg>capacity=50</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.695669" elapsed="0.000511"/>
-</kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:03.697152" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMywiZXhwIjoxNzUxNTAxNDAzfQ.EiaXzYtwQY4aw3WjQUCHS-nXKbiOIE_DFExg9BOAEDk'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.696921" elapsed="0.000318"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:04.129971" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMywiZXhwIjoxNzUxNTAxNDAzfQ.EiaXzYtwQY4aw3WjQUCHS-nXKbiOIE_DFExg9BOAEDk', 'Content-Length': '62', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala Para Deletar 20250701211003", "capacity": "50"}' 
- </msg>
-<msg time="2025-07-01T21:10:04.130349" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=201, reason=Created 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '250', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:04 GMT', 'Etag': 'W/"fa-acVAbNGbpuOSwDMHIkPkntqtaKY"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::wqzz4-1751415003761-cd7a64f0eeb9', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"name":"Sala Para Deletar 20250701211003","capacity":50,"type":"standard","_id":"686478db7b1cf327fcbde221","createdAt":"2025-07-02T00:10:03.952Z","updatedAt":"2025-07-02T00:10:03.952Z","__v":0,"id":"686478db7b1cf327fcbde221"}} 
- </msg>
-<msg time="2025-07-01T21:10:04.130631" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:03.697354" elapsed="0.433398"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:04.130903" elapsed="0.000137"/>
-</return>
-<msg time="2025-07-01T21:10:04.131286" level="INFO">${create_response} = &lt;Response [201]&gt;</msg>
-<var>${create_response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala}</arg>
-<status status="PASS" start="2025-07-01T21:10:03.696507" elapsed="0.434887"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:04.135344" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.134333" elapsed="0.001245"/>
-</kw>
-<arg>201</arg>
-<arg>${create_response}</arg>
-<status status="PASS" start="2025-07-01T21:10:04.132264" elapsed="0.003480"/>
+<kw name="Gerar Email Aleatorio" owner="common_keywords">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-07-02T18:27:51.869108" level="INFO">${random} = XU37NNNs</msg>
+<var>${random}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-07-02T18:27:51.868328" elapsed="0.001351"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:04.136953" level="INFO">${id_sala} = 686478db7b1cf327fcbde221</msg>
-<var>${id_sala}</var>
-<arg>${create_response.json()['data']['_id']}</arg>
+<msg time="2025-07-02T18:27:51.873449" level="INFO">${email} = test_XU37NNNs@example.com</msg>
+<var>${email}</var>
+<arg>test_${random}@example.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.136106" elapsed="0.001021"/>
+<status status="PASS" start="2025-07-02T18:27:51.870252" elapsed="0.003623"/>
 </kw>
-<kw name="Deletar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:04.138593" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMywiZXhwIjoxNzUxNTAxNDAzfQ.EiaXzYtwQY4aw3WjQUCHS-nXKbiOIE_DFExg9BOAEDk'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.138248" elapsed="0.000512"/>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2025-07-02T18:27:51.874241" elapsed="0.000742"/>
+</return>
+<msg time="2025-07-02T18:27:51.875786" level="INFO">${random_email} = test_XU37NNNs@example.com</msg>
+<var>${random_email}</var>
+<status status="PASS" start="2025-07-02T18:27:51.866909" elapsed="0.009266"/>
 </kw>
-<kw name="Replace String" owner="String">
-<msg time="2025-07-01T21:10:04.139730" level="INFO">${url} = /theaters/686478db7b1cf327fcbde221</msg>
+<kw name="Registrar Novo Usuario" owner="auth_keywords">
+<kw name="Ir Para Pagina De Registro" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:52.112071" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:51.885134" elapsed="0.232038"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:52.124005" level="INFO">Clicks the element 'text=Cadastrar &gt;&gt; nth=0'.</msg>
+<arg>text=Cadastrar &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.121589" elapsed="0.196847"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:52.372003" level="INFO">Waited for Element with selector id=name at state visible</msg>
+<arg>${REGISTER_NAME_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.319053" elapsed="0.053474"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:51.884088" elapsed="0.488710"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:52.412573" level="INFO">Waited for Element with selector id=name at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.378615" elapsed="0.035818"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:52.427483" level="INFO">Fills the text 'Test User' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.415123" elapsed="0.087731"/>
+</kw>
+<arg>${REGISTER_NAME_FIELD}</arg>
+<arg>${nome}</arg>
+<status status="PASS" start="2025-07-02T18:27:52.373797" elapsed="0.129468"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:52.539456" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.506411" elapsed="0.033578"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:52.543147" level="INFO">Fills the text 'test_XU37NNNs@example.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.540532" elapsed="0.075011"/>
+</kw>
+<arg>${REGISTER_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-02T18:27:52.503631" elapsed="0.112349"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:52.656084" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.622626" elapsed="0.035326"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:52.660515" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.658416" elapsed="0.041832"/>
+</kw>
+<arg>${REGISTER_PASSWORD_FIELD}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:52.616489" elapsed="0.084392"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:52.722395" level="INFO">Waited for Element with selector id=confirmPassword at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.702351" elapsed="0.020475"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:52.723919" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.723086" elapsed="0.035153"/>
+</kw>
+<arg>${REGISTER_CONFIRM_FIELD}</arg>
+<arg>${confirmar_senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:52.701361" elapsed="0.057356"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:52.761389" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${REGISTER_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.759208" elapsed="0.117064"/>
+</kw>
+<arg>Test User</arg>
+<arg>${random_email}</arg>
+<arg>password123</arg>
+<arg>password123</arg>
+<status status="PASS" start="2025-07-02T18:27:51.879853" elapsed="0.997296"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2025-07-02T18:27:52.897535" level="INFO">${url} = https://challenge-pb-front.vercel.app/register</msg>
 <var>${url}</var>
-<arg>${THEATERS_ID_ENDPOINT}</arg>
-<arg>{id}</arg>
-<arg>${id_sala}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.139363" elapsed="0.000513"/>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.878575" elapsed="0.019495"/>
 </kw>
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:04.696993" level="INFO">DELETE Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478db7b1cf327fcbde221 
- path_url=/api/v1/theaters/686478db7b1cf327fcbde221 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwMywiZXhwIjoxNzUxNTAxNDAzfQ.EiaXzYtwQY4aw3WjQUCHS-nXKbiOIE_DFExg9BOAEDk', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2025-07-01T21:10:04.697222" level="INFO">DELETE Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478db7b1cf327fcbde221 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '44', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:04 GMT', 'Etag': 'W/"2c-4tDAm7NDORLuhe1byKnVNeIffY4"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::4xxfj-1751415004217-98ac2e2b4abc', 'X-Xss-Protection': '0'} 
- body={"success":true,"message":"Theater removed"} 
- </msg>
-<msg time="2025-07-01T21:10:04.697385" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${url}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.140068" elapsed="0.557379"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>challenge-pb-front.vercel.app</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.899340" elapsed="0.000989"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:04.697555" elapsed="0.000148"/>
-</return>
-<msg time="2025-07-01T21:10:04.697957" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${token}</arg>
-<arg>${id_sala}</arg>
-<status status="PASS" start="2025-07-01T21:10:04.137742" elapsed="0.560336"/>
+<kw name="Verificar Texto Na Pagina" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:53.807176" level="INFO">Waited for Element with selector text=Conta criada com sucesso! at state visible</msg>
+<arg>text=${texto}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:52.901791" elapsed="0.906212"/>
 </kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:04.699557" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.698899" elapsed="0.000816"/>
+<arg>Conta criada com sucesso!</arg>
+<status status="PASS" start="2025-07-02T18:27:52.901014" elapsed="0.907353"/>
 </kw>
-<arg>200</arg>
-<arg>${response}</arg>
-<status status="PASS" start="2025-07-01T21:10:04.698408" elapsed="0.001403"/>
+<kw name="Verificar Usuario Logado" owner="auth_keywords">
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:53.839620" level="INFO">Waited for Element with selector text=Perfil at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:53.818931" elapsed="0.022192"/>
 </kw>
-<kw name="Dictionary Should Contain Value" owner="Collections">
-<arg>${response.json()}</arg>
-<arg>Theater removed</arg>
-<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.700131" elapsed="0.000829"/>
+<arg>${HEADER_PROFILE_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:53.813969" elapsed="0.027699"/>
 </kw>
-<tag>THE-006</tag>
-<status status="PASS" start="2025-07-01T21:10:03.263946" elapsed="1.437590"/>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:53.882197" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:53.848547" elapsed="0.034138"/>
+</kw>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<status status="PASS" start="2025-07-02T18:27:53.842177" elapsed="0.041381"/>
+</kw>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:53.932954" level="INFO">Waited for Element with selector text=Minhas Reservas at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:53.885126" elapsed="0.048596"/>
+</kw>
+<arg>${HEADER_RESERVATIONS_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:53.884124" elapsed="0.049922"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:53.811741" elapsed="0.122493"/>
+</kw>
+<tag>WEB-AUTH-04</tag>
+<status status="PASS" start="2025-07-02T18:27:50.670813" elapsed="3.263729"/>
 </test>
-<test id="s1-t8" name="Tentar Deletar Sala Com Sessões Ativas Deve Falhar" line="100">
-<kw name="Fazer Login Do Usuario" owner="auth">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:04.705823" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
-<var>${headers}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.704899" elapsed="0.001071"/>
+<test id="s1-t5" name="WEB-AUTH-05 - Registro Com Senhas Diferentes" line="39">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:54.256697" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:54.033461" elapsed="0.229762"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:04.707463" level="INFO">${body} = {'email': 'admin@example.com', 'password': 'password123'}</msg>
-<var>${body}</var>
-<arg>email=${email}</arg>
-<arg>password=${senha}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.707025" elapsed="0.000583"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:55.270093" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:54.267072" elapsed="1.004234"/>
 </kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:05.115306" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
- body=b'{"email": "admin@example.com", "password": "password123"}' 
- </msg>
-<msg time="2025-07-01T21:10:05.115501" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/auth/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '303', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:04 GMT', 'Etag': 'W/"12f-rfl9b9lzYMe3Azz0yWwrncLPu7c"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::kt6pt-1751415004777-668bd4cb4b5b', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"_id":"685c2d5cf34317e7520c4282","name":"Admin User","email":"admin@example.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwNSwiZXhwIjoxNzUxNTAxNDA1fQ.Xra4XQVyVFTSXvMWbl46d7jdyNjQrQ-rUwAYhdI-RZg"}} 
- </msg>
-<msg time="2025-07-01T21:10:05.115663" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${AUTH_LOGIN_ENDPOINT}</arg>
-<arg>json=${body}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:04.708462" elapsed="0.407262"/>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-02T18:27:55.336338" level="INFO">${logout_exists} = 0</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.271870" elapsed="0.064839"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:05.115827" elapsed="0.000077"/>
-</return>
-<msg time="2025-07-01T21:10:05.116037" level="INFO">${login_response} = &lt;Response [200]&gt;</msg>
-<var>${login_response}</var>
-<arg>${ADMIN_EMAIL}</arg>
-<arg>${ADMIN_PASSWORD}</arg>
-<status status="PASS" start="2025-07-01T21:10:04.704356" elapsed="0.411741"/>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:55.339894" elapsed="0.000494"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:05.116726" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwNSwiZXhwIjoxNzUxNTAxNDA1fQ.Xra4XQVyVFTSXvMWbl46d7jdyNjQrQ-rUwAYhdI-RZg</msg>
-<var>${token}</var>
-<arg>${login_response.json()['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.116276" elapsed="0.000532"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:55.341002" elapsed="0.000359"/>
 </kw>
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-07-01T21:10:05.117176" level="INFO">${timestamp} = 20250701211005</msg>
-<var>${timestamp}</var>
-<arg>result_format=%Y%m%d%H%M%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.116978" elapsed="0.000265"/>
+<status status="NOT RUN" start="2025-07-02T18:27:55.337628" elapsed="0.004085"/>
+</branch>
+<status status="PASS" start="2025-07-02T18:27:55.337564" elapsed="0.004367"/>
+</if>
+<status status="PASS" start="2025-07-02T18:27:54.031117" elapsed="1.310939"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:05.117730" level="INFO">${dados_sala} = {'name': 'Sala Com Sessao 20250701211005', 'capacity': '100'}</msg>
-<var>${dados_sala}</var>
-<arg>name=Sala Com Sessao ${timestamp}</arg>
-<arg>capacity=100</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.117475" elapsed="0.000337"/>
-</kw>
-<kw name="Criar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:05.118571" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwNSwiZXhwIjoxNzUxNTAxNDA1fQ.Xra4XQVyVFTSXvMWbl46d7jdyNjQrQ-rUwAYhdI-RZg'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.118370" elapsed="0.000284"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:05.563366" level="INFO">POST Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- path_url=/api/v1/theaters 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwNSwiZXhwIjoxNzUxNTAxNDA1fQ.Xra4XQVyVFTSXvMWbl46d7jdyNjQrQ-rUwAYhdI-RZg', 'Content-Length': '61', 'Content-Type': 'application/json'} 
- body=b'{"name": "Sala Com Sessao 20250701211005", "capacity": "100"}' 
- </msg>
-<msg time="2025-07-01T21:10:05.563702" level="INFO">POST Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters 
- status=201, reason=Created 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '249', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:05 GMT', 'Etag': 'W/"f9-EbA4HN2/NEebO0jVKrW+8+1HgU8"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::4bw26-1751415005186-2a0cc0c5f37a', 'X-Xss-Protection': '0'} 
- body={"success":true,"data":{"name":"Sala Com Sessao 20250701211005","capacity":100,"type":"standard","_id":"686478dd7b1cf327fcbde228","createdAt":"2025-07-02T00:10:05.386Z","updatedAt":"2025-07-02T00:10:05.386Z","__v":0,"id":"686478dd7b1cf327fcbde228"}} 
- </msg>
-<msg time="2025-07-01T21:10:05.563965" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${THEATERS_ENDPOINT}</arg>
-<arg>json=${dados_sala}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.118775" elapsed="0.445291"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:05.564207" elapsed="0.000118"/>
-</return>
-<msg time="2025-07-01T21:10:05.564556" level="INFO">${create_response} = &lt;Response [201]&gt;</msg>
-<var>${create_response}</var>
-<arg>${token}</arg>
-<arg>${dados_sala}</arg>
-<status status="PASS" start="2025-07-01T21:10:05.118046" elapsed="0.446615"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:05.566171" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.565403" elapsed="0.000969"/>
-</kw>
-<arg>201</arg>
-<arg>${create_response}</arg>
-<status status="PASS" start="2025-07-01T21:10:05.564974" elapsed="0.001543"/>
+<kw name="Gerar Email Aleatorio" owner="common_keywords">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-07-02T18:27:55.362978" level="INFO">${random} = PpcQiHeF</msg>
+<var>${random}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.346440" elapsed="0.017239"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-07-01T21:10:05.567502" level="INFO">${id_sala} = 686478dd7b1cf327fcbde228</msg>
-<var>${id_sala}</var>
-<arg>${create_response.json()['data']['_id']}</arg>
+<msg time="2025-07-02T18:27:55.370227" level="INFO">${email} = test_PpcQiHeF@example.com</msg>
+<var>${email}</var>
+<arg>test_${random}@example.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.566882" elapsed="0.000846"/>
+<status status="PASS" start="2025-07-02T18:27:55.367741" elapsed="0.003433"/>
 </kw>
-<kw name="Deletar Sala" owner="theaters">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-01T21:10:05.569288" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwNSwiZXhwIjoxNzUxNTAxNDA1fQ.Xra4XQVyVFTSXvMWbl46d7jdyNjQrQ-rUwAYhdI-RZg'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.568895" elapsed="0.000542"/>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2025-07-02T18:27:55.371395" elapsed="0.000275"/>
+</return>
+<msg time="2025-07-02T18:27:55.372009" level="INFO">${random_email} = test_PpcQiHeF@example.com</msg>
+<var>${random_email}</var>
+<status status="PASS" start="2025-07-02T18:27:55.343129" elapsed="0.029043"/>
 </kw>
-<kw name="Replace String" owner="String">
-<msg time="2025-07-01T21:10:05.569996" level="INFO">${url} = /theaters/686478dd7b1cf327fcbde228</msg>
+<kw name="Registrar Novo Usuario" owner="auth_keywords">
+<kw name="Ir Para Pagina De Registro" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:55.516163" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.374231" elapsed="0.143712"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:55.521264" level="INFO">Clicks the element 'text=Cadastrar &gt;&gt; nth=0'.</msg>
+<arg>text=Cadastrar &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.519297" elapsed="0.193129"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:55.766611" level="INFO">Waited for Element with selector id=name at state visible</msg>
+<arg>${REGISTER_NAME_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.713428" elapsed="0.054853"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:55.373278" elapsed="0.395318"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:55.833148" level="INFO">Waited for Element with selector id=name at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.772159" elapsed="0.061485"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:55.834985" level="INFO">Fills the text 'Test User' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.834002" elapsed="0.125170"/>
+</kw>
+<arg>${REGISTER_NAME_FIELD}</arg>
+<arg>${nome}</arg>
+<status status="PASS" start="2025-07-02T18:27:55.768933" elapsed="0.190572"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:55.976526" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.960564" elapsed="0.017168"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:55.980847" level="INFO">Fills the text 'test_PpcQiHeF@example.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:55.978844" elapsed="0.063065"/>
+</kw>
+<arg>${REGISTER_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-02T18:27:55.959849" elapsed="0.082614"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:56.081548" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.044589" elapsed="0.038138"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:56.104903" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.083140" elapsed="0.062096"/>
+</kw>
+<arg>${REGISTER_PASSWORD_FIELD}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:56.043214" elapsed="0.102779"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:56.185729" level="INFO">Waited for Element with selector id=confirmPassword at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.151907" elapsed="0.034197"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:56.187948" level="INFO">Fills the text 'password456' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.186374" elapsed="0.029025"/>
+</kw>
+<arg>${REGISTER_CONFIRM_FIELD}</arg>
+<arg>${confirmar_senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:56.148021" elapsed="0.068553"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:56.220429" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${REGISTER_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.217203" elapsed="0.101244"/>
+</kw>
+<arg>Test User</arg>
+<arg>${random_email}</arg>
+<arg>password123</arg>
+<arg>password456</arg>
+<status status="PASS" start="2025-07-02T18:27:55.372568" elapsed="0.946285"/>
+</kw>
+<kw name="Verificar Texto Na Pagina" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:56.343202" level="INFO">Waited for Element with selector text=As senhas não coincidem. at state visible</msg>
+<arg>text=${texto}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.321452" elapsed="0.022391"/>
+</kw>
+<arg>As senhas não coincidem.</arg>
+<status status="PASS" start="2025-07-02T18:27:56.320622" elapsed="0.023545"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2025-07-02T18:27:56.353280" level="INFO">${url} = https://challenge-pb-front.vercel.app/register</msg>
 <var>${url}</var>
-<arg>${THEATERS_ID_ENDPOINT}</arg>
-<arg>{id}</arg>
-<arg>${id_sala}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.569662" elapsed="0.000488"/>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.344955" elapsed="0.009163"/>
 </kw>
-<kw name="DELETE" owner="RequestsLibrary">
-<msg time="2025-07-01T21:10:06.141103" level="INFO">DELETE Request : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478dd7b1cf327fcbde228 
- path_url=/api/v1/theaters/686478dd7b1cf327fcbde228 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NWMyZDVjZjM0MzE3ZTc1MjBjNDI4MiIsImlhdCI6MTc1MTQxNTAwNSwiZXhwIjoxNzUxNTAxNDA1fQ.Xra4XQVyVFTSXvMWbl46d7jdyNjQrQ-rUwAYhdI-RZg', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg time="2025-07-01T21:10:06.141297" level="INFO">DELETE Response : url=https://challenge-pb-back-n9wmjthu8-marcosdev03s-projects.vercel.app/api/v1/theaters/686478dd7b1cf327fcbde228 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Content-Length': '44', 'Content-Type': 'application/json; charset=utf-8', 'Cross-Origin-Opener-Policy': 'same-origin', 'Cross-Origin-Resource-Policy': 'same-origin', 'Date': 'Wed, 02 Jul 2025 00:10:06 GMT', 'Etag': 'W/"2c-4tDAm7NDORLuhe1byKnVNeIffY4"', 'Origin-Agent-Cluster': '?1', 'Referrer-Policy': 'no-referrer', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Permitted-Cross-Domain-Policies': 'none', 'X-Robots-Tag': 'noindex', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'gru1::iad1::g62lc-1751415005637-adf67141e495', 'X-Xss-Protection': '0'} 
- body={"success":true,"message":"Theater removed"} 
- </msg>
-<msg time="2025-07-01T21:10:06.141443" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${BASE_API_URL}${url}</arg>
-<arg>headers=${headers}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2025-07-01T21:10:05.570343" elapsed="0.571159"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/register</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.355077" elapsed="0.001137"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-07-01T21:10:06.141596" elapsed="0.000087"/>
-</return>
-<msg time="2025-07-01T21:10:06.141824" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${token}</arg>
-<arg>${id_sala}</arg>
-<status status="PASS" start="2025-07-01T21:10:05.568327" elapsed="0.573557"/>
-</kw>
-<kw name="Status Deve Ser" owner="auth">
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-07-01T21:10:06.148378" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${response.status_code}</arg>
-<arg>${status_esperado}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-07-01T21:10:06.147433" elapsed="0.001191"/>
-</kw>
-<arg>200</arg>
-<arg>${response}</arg>
-<status status="PASS" start="2025-07-01T21:10:06.142378" elapsed="0.006439"/>
-</kw>
-<tag>THE-007</tag>
-<status status="PASS" start="2025-07-01T21:10:04.703108" elapsed="1.446042"/>
+<tag>WEB-AUTH-05</tag>
+<status status="PASS" start="2025-07-02T18:27:54.001609" elapsed="2.355397"/>
 </test>
-<status status="FAIL" start="2025-07-01T21:09:57.403985" elapsed="8.745952"/>
+<test id="s1-t6" name="WEB-AUTH-06 - Logout Do Sistema" line="47">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:56.567096" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.424591" elapsed="0.143141"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-02T18:27:57.572313" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-02T18:27:56.568098" elapsed="1.006309"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-02T18:27:57.636436" level="INFO">${logout_exists} = 0</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:57.575133" elapsed="0.062546"/>
+</kw>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:57.640855" elapsed="0.000928"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-02T18:27:57.643039" elapsed="0.001773"/>
+</kw>
+<status status="NOT RUN" start="2025-07-02T18:27:57.638078" elapsed="0.008299"/>
+</branch>
+<status status="PASS" start="2025-07-02T18:27:57.638018" elapsed="0.008929"/>
+</if>
+<status status="PASS" start="2025-07-02T18:27:56.417149" elapsed="1.230068"/>
+</kw>
+<kw name="Fazer Login Como Usuario" owner="auth_keywords">
+<kw name="Ir Para Pagina De Login" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-02T18:27:57.820287" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-02T18:27:57.660836" elapsed="0.159988"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:57.822003" level="INFO">Clicks the element 'a[href="/login"] &gt;&gt; nth=0'.</msg>
+<arg>a[href="/login"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:57.821186" elapsed="0.198917"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:58.065479" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.024135" elapsed="0.042269"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:57.651260" elapsed="0.415711"/>
+</kw>
+<kw name="Preencher Credenciais" owner="auth_keywords">
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:58.094814" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.069687" elapsed="0.026435"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:58.100886" level="INFO">Fills the text 'user@example.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.097150" elapsed="0.072998"/>
+</kw>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-02T18:27:58.068908" elapsed="0.101830"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:58.216883" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.174327" elapsed="0.043422"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-02T18:27:58.222459" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.218893" elapsed="0.107638"/>
+</kw>
+<arg>${LOGIN_PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-07-02T18:27:58.172109" elapsed="0.154865"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-07-02T18:27:58.067539" elapsed="0.259889"/>
+</kw>
+<kw name="Clicar Em Entrar" owner="auth_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:58.332331" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.330292" elapsed="0.138944"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:58.328192" elapsed="0.141295"/>
+</kw>
+<kw name="Verificar Login Bem Sucedido" owner="auth_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:59.338287" level="INFO">Waited for Element with selector text=Login realizado com sucesso! at state visible</msg>
+<arg>text=Login realizado com sucesso!</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:58.470253" elapsed="0.868404"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:59.347908" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:59.338915" elapsed="0.010720"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:58.469742" elapsed="0.880895"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:57.649453" elapsed="1.701382"/>
+</kw>
+<kw name="Fazer Logout" owner="auth_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-02T18:27:59.358815" level="INFO">Clicks the element 'text=Sair'.</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-02T18:27:59.356233" elapsed="0.122134"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:59.494114" level="INFO">Waited for Element with selector a[href="/login"] &gt;&gt; nth=0 at state visible</msg>
+<arg>${HEADER_LOGIN_LINK}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:59.478768" elapsed="0.016282"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:59.355424" elapsed="0.140232"/>
+</kw>
+<kw name="Verificar Usuario Nao Logado" owner="auth_keywords">
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:59.521336" level="INFO">Waited for Element with selector a[href="/login"] &gt;&gt; nth=0 at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:59.502141" elapsed="0.019532"/>
+</kw>
+<arg>${HEADER_LOGIN_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:59.498784" elapsed="0.023045"/>
+</kw>
+<kw name="Aguardar Elemento" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-02T18:27:59.567666" level="INFO">Waited for Element with selector text=Cadastrar at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=${timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-02T18:27:59.523273" elapsed="0.046109"/>
+</kw>
+<arg>${HEADER_REGISTER_LINK}</arg>
+<status status="PASS" start="2025-07-02T18:27:59.522035" elapsed="0.048188"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:59.496663" elapsed="0.074219"/>
+</kw>
+<tag>WEB-AUTH-06</tag>
+<status status="PASS" start="2025-07-02T18:27:56.401845" elapsed="3.169610"/>
+</test>
+<kw name="Encerrar Navegador" owner="common_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2025-07-02T18:27:59.940491" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-02T18:27:59.593254" elapsed="0.348289"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:59.591660" elapsed="0.350522"/>
+</kw>
+<status status="PASS" start="2025-07-02T18:27:36.944968" elapsed="22.997474"/>
 </suite>
 <statistics>
 <total>
-<stat pass="6" fail="2" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">THE-001</stat>
-<stat pass="1" fail="1" skip="0">THE-002</stat>
-<stat pass="1" fail="0" skip="0">THE-003</stat>
-<stat pass="1" fail="0" skip="0">THE-004</stat>
-<stat pass="0" fail="1" skip="0">THE-005</stat>
-<stat pass="1" fail="0" skip="0">THE-006</stat>
-<stat pass="1" fail="0" skip="0">THE-007</stat>
+<stat pass="1" fail="0" skip="0">WEB-AUTH-01</stat>
+<stat pass="1" fail="0" skip="0">WEB-AUTH-02</stat>
+<stat pass="1" fail="0" skip="0">WEB-AUTH-03</stat>
+<stat pass="1" fail="0" skip="0">WEB-AUTH-04</stat>
+<stat pass="1" fail="0" skip="0">WEB-AUTH-05</stat>
+<stat pass="1" fail="0" skip="0">WEB-AUTH-06</stat>
 </tag>
 <suite>
-<stat name="Theaters Tests" id="s1" pass="6" fail="2" skip="0">Theaters Tests</stat>
+<stat name="Auth Tests" id="s1" pass="6" fail="0" skip="0">Auth Tests</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-07-01T21:09:57.476038" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 14: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476197" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 21: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476291" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 27: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476437" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 36: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476551" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 45: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476637" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 51: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476738" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 56: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476816" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 61: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.476945" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 66: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-07-01T21:09:57.477054" level="WARN">Error in file '/media/marcos/MEU HD/challenge_tecnico_do_pb/resources/api/auth.resource' on line 74: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

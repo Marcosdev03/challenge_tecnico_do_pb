@@ -5,19 +5,25 @@ Resource   ../../variables/api_variables.robot
 Resource   ../../variables/global_variables.robot
 
 *** Keywords ***
+
+Status Deve Ser
+    [Arguments]    ${status_esperado}    ${response}
+    Should Be Equal As Strings    ${response.status_code}    ${status_esperado}
+
+    
 Criar Usuario
     [Arguments]    ${dados_usuario}
-    ${response}=    POST    ${BASE_API_URL}${USERS_ENDPOINT}    json=${dados_usuario}
+    ${response}=    POST    ${BASE_API_URL}${USERS_ENDPOINT}    json=${dados_usuario}    expected_status=any
     RETURN    ${response}
 
 Obter Perfil Do Usuario Por ID
     [Arguments]    ${id_usuario}
-    ${response}=    GET    ${BASE_API_URL}${USERS_ENDPOINT}/${id_usuario}
+    ${response}=    GET    ${BASE_API_URL}${USERS_ENDPOINT}/${id_usuario}    expected_status=any
     RETURN    ${response}
 
 Atualizar Perfil Do Usuario Por ID
     [Arguments]    ${id_usuario}    ${dados_usuario}
-    ${response}=    PUT    ${BASE_API_URL}${USERS_ENDPOINT}/${id_usuario}    json=${dados_usuario}
+    ${response}=    PUT    ${BASE_API_URL}${USERS_ENDPOINT}/${id_usuario}    json=${dados_usuario}    expected_status=any
     RETURN    ${response}
 
 Obter Todos Os Usuarios

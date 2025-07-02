@@ -1,16 +1,25 @@
 *** Settings ***
-Resource    ../../resources/web/home_page.resource
-Resource    ../../resources/web/movie_page.resource
-Suite Teardown    Close Browser Session
+Library    Browser
+Resource    ../../resources/web/navigation_keywords.resource
+
+Suite Setup    Iniciar Navegador
+Suite Teardown    Encerrar Navegador
+Test Setup    Ir Para Home E Fazer Logout Se Necessario
 
 *** Test Cases ***
-Navegar Para Página Inicial Deve Carregar Corretamente
+WEB-NAV-01 - Visualizar Filmes Na Home
     [Tags]    WEB-NAV-01
-    Navigate To Home Page
-    Verify Home Page Is Loaded
+    Ir Para Home
+    Verificar Home Carregada
 
-Navegar Para Página Do Filme Deve Carregar Detalhes
+WEB-NAV-02 - Acessar Detalhes Do Filme
     [Tags]    WEB-NAV-02
-    Navigate To Home Page
-    Click Featured Movie
-    Verify Movie Page Is Loaded
+    Navegar Para Detalhes Do Filme
+    Verificar Detalhes Do Filme Carregados
+
+WEB-NAV-03 - Tentar Acessar Selecao De Assentos
+    [Tags]    WEB-NAV-03
+    Fazer Login Como Usuario
+    Ir Para Filme Com Sessoes
+    Tentar Acessar Selecao De Assentos
+    Verificar Texto Na Pagina    Erro ao carregar informações

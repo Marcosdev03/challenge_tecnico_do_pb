@@ -1,0 +1,9 @@
+[robot]
+keyword_resolution_order = builtin,collections,custom
+lint_enabled = false
+problems_enabled = false
+
+[language_server]
+python_executable = python3
+libraries_auto_import = true
+keywords_auto_complete = true
