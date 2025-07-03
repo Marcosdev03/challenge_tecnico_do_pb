@@ -1,0 +1,82 @@
+name: 🎯 Manual Test Execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Tipo de teste'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - api-auth
+        - api-movies
+        - api-reservations
+        - web-auth
+        - web-navigation
+        - web-booking
+        - web-profile
+      environment:
+        description: 'Ambiente'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+        - production
+        - staging
+
+jobs:
+  manual-execution:
+    name: 🧪 Execução Manual
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 🔧 Instalar dependências
+      run: |
+        pip install -r requirements.txt
+        rfbrowser init
+        
+    - name: 🧪 Executar testes selecionados
+      run: |
+        case "${{ github.event.inputs.test_type }}" in
+          "all")
+            robot --outputdir results tests/
+            ;;
+          "api-auth")
+            robot --outputdir results --include AUTH* tests/api/
+            ;;
+          "api-movies")
+            robot --outputdir results --include MOV* tests/api/
+            ;;
+          "api-reservations")
+            robot --outputdir results --include RES* tests/api/
+            ;;
+          "web-auth")
+            robot --outputdir results --include WEB-AUTH* tests/web/
+            ;;
+          "web-navigation")
+            robot --outputdir results --include WEB-NAV* tests/web/
+            ;;
+          "web-booking")
+            robot --outputdir results --include WEB-BOOK* tests/web/
+            ;;
+          "web-profile")
+            robot --outputdir results --include WEB-PROF* tests/web/
+            ;;
+        esac
+        
+    - name: 📊 Upload resultados
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: manual-test-results-${{ github.event.inputs.test_type }}
+        path: results/
