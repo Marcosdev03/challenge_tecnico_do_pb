@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.2 on linux)" generated="2025-07-03T14:35:50.672568" rpa="false" schemaversion="5">
+<suite id="s1" name="Booking Tests" source="/media/marcos/MEU HD/challenge_tecnico_do_pb/tests/web/booking_tests.robot">
+<kw name="Iniciar Navegador" owner="common_keywords" type="SETUP">
+<kw name="Get Variable Value" owner="BuiltIn">
+<msg time="2025-07-03T14:35:50.785948" level="INFO">${headless} = true</msg>
+<var>${headless}</var>
+<arg>${HEADLESS}</arg>
+<arg>false</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<status status="PASS" start="2025-07-03T14:35:50.785713" elapsed="0.000270"/>
+</kw>
+<kw name="New Browser" owner="Browser">
+<msg time="2025-07-03T14:35:50.786683" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/media/marcos/MEU HD/challenge_tecnico_do_pb/results/browser/traces/temp/692b3928-8aff-46da-9f6e-b162d802b4cf"}</msg>
+<msg time="2025-07-03T14:35:50.804397" level="INFO">Starting Browser process /home/marcos/anaconda3/envs/ambiente_compasso/lib/python3.13/site-packages/Browser/wrapper/index.js using at 127.0.0.1:51805</msg>
+<msg time="2025-07-03T14:35:51.713975" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/media/marcos/MEU HD/challenge_tecnico_do_pb/results/browser/traces/temp/692b3928-8aff-46da-9f6e-b162d802b4cf"}</msg>
+<arg>chromium</arg>
+<arg>headless=${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-07-03T14:35:50.786108" elapsed="0.928019"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2025-07-03T14:35:51.715913" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  }
+}</msg>
+<msg time="2025-07-03T14:35:51.726223" level="INFO">Successfully created context. </msg>
+<msg time="2025-07-03T14:35:51.726297" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 1080, 'width': 1920}}</msg>
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-07-03T14:35:51.714311" elapsed="0.012053"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-07-03T14:35:52.039118" level="INFO">Successfully initialized new page object and opened url: https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-07-03T14:35:51.726518" elapsed="0.312831"/>
+</kw>
+<status status="PASS" start="2025-07-03T14:35:50.785166" elapsed="1.254315"/>
+</kw>
+<test id="s1-t1" name="WEB-BOOK-01 - Visualizar Sessoes Disponiveis" line="10">
+<kw name="Ir Para Home E Fazer Logout Se Necessario" owner="auth_keywords" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-03T14:35:52.170921" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-03T14:35:52.113465" elapsed="0.057606"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-03T14:35:53.171588" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-03T14:35:52.171217" elapsed="1.000577"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-07-03T14:35:53.212582" level="INFO">${logout_exists} = 0</msg>
+<var>${logout_exists}</var>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.172152" elapsed="0.040468"/>
+</kw>
+<if>
+<branch type="IF" condition="${logout_exists} &gt; 0">
+<kw name="Click" owner="Browser">
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-03T14:35:53.212978" elapsed="0.000048"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-03T14:35:53.213117" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2025-07-03T14:35:53.212730" elapsed="0.000448"/>
+</branch>
+<status status="PASS" start="2025-07-03T14:35:53.212703" elapsed="0.000509"/>
+</if>
+<status status="PASS" start="2025-07-03T14:35:52.113030" elapsed="1.100232"/>
+</kw>
+<kw name="Fazer Login Como Usuario" owner="auth_keywords">
+<kw name="Ir Para Pagina De Login" owner="auth_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-03T14:35:53.264698" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.213768" elapsed="0.051061"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-03T14:35:53.265384" level="INFO">Clicks the element 'a[href="/login"] &gt;&gt; nth=0'.</msg>
+<arg>a[href="/login"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.264977" elapsed="0.071657"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-03T14:35:53.343520" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.336881" elapsed="0.006850"/>
+</kw>
+<status status="PASS" start="2025-07-03T14:35:53.213628" elapsed="0.130245"/>
+</kw>
+<kw name="Preencher Credenciais" owner="auth_keywords">
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-03T14:35:53.348954" level="INFO">Waited for Element with selector id=email at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.344616" elapsed="0.004453"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-03T14:35:53.349599" level="INFO">Fills the text 'user@example.com' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.349204" elapsed="0.009571"/>
+</kw>
+<arg>${LOGIN_EMAIL_FIELD}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2025-07-03T14:35:53.344389" elapsed="0.014485"/>
+</kw>
+<kw name="Preencher Campo" owner="common_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-03T14:35:53.364071" level="INFO">Waited for Element with selector id=password at state visible</msg>
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.359357" elapsed="0.004836"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-07-03T14:35:53.364793" level="INFO">Fills the text 'password123' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${texto}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.364394" elapsed="0.008797"/>
+</kw>
+<arg>${LOGIN_PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-07-03T14:35:53.359035" elapsed="0.014300"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2025-07-03T14:35:53.344071" elapsed="0.029333"/>
+</kw>
+<kw name="Clicar Em Entrar" owner="auth_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2025-07-03T14:35:53.374289" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+<arg>${LOGIN_SUBMIT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.373921" elapsed="0.037585"/>
+</kw>
+<status status="PASS" start="2025-07-03T14:35:53.373621" elapsed="0.037986"/>
+</kw>
+<kw name="Verificar Login Bem Sucedido" owner="auth_keywords">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-03T14:35:54.205431" level="INFO">Waited for Element with selector text=Login realizado com sucesso! at state visible</msg>
+<arg>text=Login realizado com sucesso!</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-03T14:35:53.412026" elapsed="0.793664"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-03T14:35:54.211877" level="INFO">Waited for Element with selector text=Sair at state visible</msg>
+<arg>${HEADER_LOGOUT_BUTTON}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-07-03T14:35:54.206002" elapsed="0.006023"/>
+</kw>
+<status status="PASS" start="2025-07-03T14:35:53.411763" elapsed="0.800350"/>
+</kw>
+<status status="PASS" start="2025-07-03T14:35:53.213388" elapsed="0.998766"/>
+</kw>
+<kw name="Ir Para Filme Com Sessoes" owner="booking_keywords">
+<kw name="Go To" owner="Browser">
+<msg time="2025-07-03T14:35:54.258079" level="INFO">Successfully opened URL https://challenge-pb-front.vercel.app</msg>
+<arg>${BASE_WEB_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2025-07-03T14:35:54.212565" elapsed="0.045657"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-07-03T14:35:54.258742" level="INFO">Clicks the element 'text=Ver Detalhes &gt;&gt; nth=4'.</msg>
+<arg>text=Ver Detalhes &gt;&gt; nth=4</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-07-03T14:35:54.258365" elapsed="0.853457"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-07-03T14:36:05.263471" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-03T14:36:05.263636" level="INFO">See also file:///media/marcos/MEU%20HD/challenge_tecnico_do_pb/results/playwright-log.txt for additional details.</msg>
+<msg time="2025-07-03T14:36:05.263953" level="FAIL">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('text=Selecionar Assentos').first() to be visible
+</msg>
+<arg>text=Selecionar Assentos &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-07-03T14:35:55.111995" elapsed="10.153995">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('text=Selecionar Assentos').first() to be visible
+</status>
+</kw>
+<status status="FAIL" start="2025-07-03T14:35:54.212314" elapsed="11.053819">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('text=Selecionar Assentos').first() to be visible
+</status>
+</kw>
+<kw name="Get Text" owner="Browser">
+<var>${page_text}</var>
+<arg>body</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-03T14:36:05.266254" elapsed="0.000070"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_text}</arg>
+<arg>25/06/2025</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-07-03T14:36:05.266426" elapsed="0.000052"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_text}</arg>
+<arg>Inteira: R$ 15.00</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-07-03T14:36:05.266558" elapsed="0.000046"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<var>${sessions}</var>
+<arg>text=Selecionar Assentos</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="NOT RUN" start="2025-07-03T14:36:05.266682" elapsed="0.000035"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${sessions} &gt;= 5</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-07-03T14:36:05.266805" elapsed="0.000045"/>
+</kw>
+<tag>WEB-BOOK-01</tag>
+<status status="FAIL" start="2025-07-03T14:35:52.039586" elapsed="13.227400">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('text=Selecionar Assentos').first() to be visible
+</status>
+</test>
+<kw name="Encerrar Navegador" owner="common_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2025-07-03T14:36:05.301400" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-03T14:36:05.272686" elapsed="0.028840"/>
+</kw>
+<status status="PASS" start="2025-07-03T14:36:05.272378" elapsed="0.029236"/>
+</kw>
+<status status="FAIL" start="2025-07-03T14:35:50.673463" elapsed="14.628186"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">WEB-BOOK-01</stat>
+</tag>
+<suite>
+<stat name="Booking Tests" id="s1" pass="0" fail="1" skip="0">Booking Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
