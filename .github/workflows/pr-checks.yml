@@ -1,0 +1,119 @@
+name: 🔍 PR Quality Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-before-merge:
+    name: 🧪 Testes Pré-Merge
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 🔧 Instalar dependências
+      run: |
+        pip install -r requirements.txt
+        rfbrowser init
+        
+    - name: 🧪 Executar todos os testes
+      run: |
+        robot --outputdir results \
+              tests/api/auth_tests.robot \
+              tests/api/movies_tests.robot \
+              tests/api/reservations_tests.robot
+        xvfb-run -a robot --outputdir results --variable HEADLESS:true tests/web/
+        
+    - name: 📊 Verificar resultados
+      run: |
+        if [ -f "results/output.xml" ]; then
+          # Extrair estatísticas básicas
+          TOTAL=$(grep -o 'stat.*pass="[0-9]*"' results/output.xml | head -1 | grep -o '[0-9]*')
+          FAILED=$(grep -o 'stat.*fail="[0-9]*"' results/output.xml | head -1 | grep -o '[0-9]*' | tail -1)
+          
+          echo "📊 Resultados: $TOTAL testes executados"
+          
+          if [ "$FAILED" = "0" ]; then
+            echo "✅ Todos os testes passaram - PR pode ser aprovado!"
+          else
+            echo "❌ $FAILED teste(s) falharam - PR precisa de correções"
+            exit 1
+          fi
+        else
+          echo "❌ Arquivo de resultados não encontrado"
+          exit 1
+        fi
+        
+    - name: 💬 Comentar no PR
+      uses: actions/github-script@v6
+      if: always()
+      with:
+        script: |
+          const fs = require('fs');
+          let message = '';
+          
+          if (fs.existsSync('results/output.xml')) {
+            const xml = fs.readFileSync('results/output.xml', 'utf8');
+            const passMatch = xml.match(/stat.*?pass="(\d+)"/);
+            const failMatch = xml.match(/stat.*?fail="(\d+)"/);
+            
+            const passed = passMatch ? passMatch[1] : '0';
+            const failed = failMatch ? failMatch[1] : '0';
+            const total = parseInt(passed) + parseInt(failed);
+            
+            if (failed === '0') {
+              message = `## ✅ Quality Gate PASSOU
+              
+              🎉 **Todos os ${total} testes passaram!**
+              
+              - ✅ API Tests: Funcionando
+              - ✅ Web Tests: Funcionando
+              - ✅ Quality Gate: APROVADO
+              
+              **🚀 PR pronto para merge!**
+              *Vercel fará deploy automático após o merge.*`;
+            } else {
+              message = `## ❌ Quality Gate FALHOU
+              
+              📊 **Resultados dos testes:**
+              - Total: ${total}
+              - ✅ Passou: ${passed}
+              - ❌ Falhou: ${failed}
+              
+              **🔧 Ações necessárias:**
+              1. Verificar logs de falha
+              2. Corrigir problemas identificados
+              3. Executar testes localmente
+              4. Fazer novo commit
+              
+              **⚠️ Deploy será bloqueado até correção.**`;
+            }
+          } else {
+            message = `## ❌ Erro na execução dos testes
+            
+            Não foi possível executar os testes. Verifique:
+            - Dependências do projeto
+            - Configuração do ambiente
+            - Logs de execução`;
+          }
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: message
+          });
+        
+    - name: 📊 Upload resultados
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: pr-test-results
+        path: results/

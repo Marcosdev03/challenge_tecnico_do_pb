@@ -1,0 +1,118 @@
+name: 🎬 Cinema App - CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Escolha qual suíte executar'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - api
+        - web
+
+jobs:
+  api-tests:
+    name: 🔧 API Tests
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.test_suite == 'api' || github.event.inputs.test_suite == 'all' || github.event.inputs.test_suite == '' }}
+    
+    steps:
+    - name: 📥 Checkout código
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 📦 Cache dependências
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        
+    - name: 🔧 Instalar dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: 🧪 Executar testes API
+      run: |
+        robot --outputdir results/api \
+              tests/api/auth_tests.robot \
+              tests/api/movies_tests.robot \
+              tests/api/reservations_tests.robot
+              
+    - name: 📊 Upload resultados API
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: api-test-results
+        path: results/api/
+
+  web-tests:
+    name: 🌐 Web Tests
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.test_suite == 'web' || github.event.inputs.test_suite == 'all' || github.event.inputs.test_suite == '' }}
+    
+    steps:
+    - name: 📥 Checkout código
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 🔧 Instalar dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: 🎭 Instalar Playwright browsers
+      run: rfbrowser init
+        
+    - name: 🧪 Executar testes Web
+      run: |
+        xvfb-run -a robot --outputdir results/web --variable HEADLESS:true tests/web/
+              
+    - name: 📊 Upload resultados Web
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: web-test-results
+        path: results/web/
+
+  quality-gate:
+    name: 🚦 Quality Gate
+    runs-on: ubuntu-latest
+    needs: [api-tests, web-tests]
+    if: always()
+    
+    steps:
+    - name: 📊 Verificar qualidade
+      run: |
+        api_result="${{ needs.api-tests.result }}"
+        web_result="${{ needs.web-tests.result }}"
+        
+        echo "API Tests: $api_result"
+        echo "Web Tests: $web_result"
+        
+        # Considerar skipped como sucesso para execuções condicionais
+        if [[ ("$api_result" == "success" || "$api_result" == "skipped") && ("$web_result" == "success" || "$web_result" == "skipped") ]]; then
+          echo "✅ Quality Gate PASSOU - Deploy pode prosseguir!"
+          echo "🚀 Vercel fará deploy automático após merge"
+        else
+          echo "❌ Quality Gate FALHOU - Deploy bloqueado"
+          echo "Pelo menos um job falhou: API=$api_result, Web=$web_result"
+          exit 1
+        fi

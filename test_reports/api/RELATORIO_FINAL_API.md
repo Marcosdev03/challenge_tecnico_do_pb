@@ -11,10 +11,10 @@
 Este relatório documenta o processo completo de desenvolvimento e validação dos testes automatizados para a API do sistema de cinema. O projeto foi desenvolvido em colaboração entre **Marcos** e **Amazon Q**, resultando em uma suíte robusta de testes que valida todas as regras de negócio do backend.
 
 ### **📈 RESULTADOS FINAIS**
-- **✅ 100% de sucesso** em todos os módulos testados
-- **✅ 19 testes API** executando perfeitamente
-- **✅ Todas as regras de negócio** validadas
-- **✅ Cobertura completa** de cenários críticos
+- **⚠️ 82% de sucesso** nos testes executados
+- **✅ 22 testes API** implementados
+- **✅ 18 testes passando** perfeitamente
+- **❌ 4 testes falhando** (problemas de backend em reservas)
 
 ---
 
@@ -26,9 +26,9 @@ Este relatório documenta o processo completo de desenvolvimento e validação d
 ├─────────────────────┼─────────┼─────────┼─────────┼──────────┤
 │ Autenticação        │ 8       │ 8       │ 0       │ 100%     │
 │ Filmes              │ 7       │ 7       │ 0       │ 100%     │
-│ Reservas            │ 4       │ 4       │ 0       │ 100%     │
+│ Reservas            │ 7       │ 3       │ 4       │ 43%      │
 ├─────────────────────┼─────────┼─────────┼─────────┼──────────┤
-│ TOTAL API           │ 19      │ 19      │ 0       │ 100%     │
+│ TOTAL API           │ 22      │ 18      │ 4       │ 82%      │
 └─────────────────────┴─────────┴─────────┴─────────┴──────────┘
 ```
 
@@ -263,13 +263,24 @@ MOV-006 ✅ Admin Deletar Filme Deve Ter Sucesso
 MOV-007 ✅ Usuário Comum Tentar Deletar Filme Deve Falhar
 ```
 
-### **RESERVAS (4 testes)**
+### **RESERVAS (7 testes - 4 falhando)**
 ```
-RES-001 ✅ Criar Reserva Com Dados Válidos
-RES-002 ✅ Listar Reservas Do Usuário Logado
-RES-003 ✅ Obter Detalhes Da Reserva Própria
-RES-004 ✅ Tentar Acessar Reserva De Outro Usuário Deve Falhar
+RES-001 ❌ Criar Reserva Com Dados Válidos (400 != 201)
+RES-002 ✅ Listar Minhas Reservas Deve Retornar Apenas Reservas Do Usuário
+RES-003 ✅ Admin Pode Listar Todas As Reservas
+RES-004 ❌ Tentar Reservar Assento Ocupado Deve Falhar (400 != 201)
+RES-005 ❌ Obter Detalhes De Reserva Própria Deve Ter Sucesso (400 != 201)
+RES-006 ❌ Tentar Acessar Reserva De Outro Usuário Deve Falhar (400 != 201)
+RES-007 ✅ Criar Reserva Sem Autenticação Deve Falhar
 ```
+
+## ⚠️ **PROBLEMAS IDENTIFICADOS**
+
+### **🔴 FALHAS EM RESERVAS (4 testes)**
+- **Problema**: Backend retorna erro 400 em vez de 201/403
+- **Impacto**: 57% dos testes de reserva falhando
+- **Causa**: Possível problema na API de reservas
+- **Status**: Requer investigação do backend
 
 ---
 
