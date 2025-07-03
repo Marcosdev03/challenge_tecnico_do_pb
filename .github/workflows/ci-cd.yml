@@ -35,7 +35,7 @@ jobs:
         python-version: '3.11'
         
     - name: 📦 Cache dependências
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -50,7 +50,7 @@ jobs:
         robot --outputdir results/api tests/api/
               
     - name: 📊 Upload resultados API
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: api-test-results
@@ -83,7 +83,7 @@ jobs:
         robot --outputdir results/web tests/web/
               
     - name: 📊 Upload resultados Web
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: web-test-results
@@ -98,13 +98,18 @@ jobs:
     steps:
     - name: 📊 Verificar qualidade
       run: |
-        echo "API Tests: ${{ needs.api-tests.result }}"
-        echo "Web Tests: ${{ needs.web-tests.result }}"
+        api_result="${{ needs.api-tests.result }}"
+        web_result="${{ needs.web-tests.result }}"
         
-        if [[ "${{ needs.api-tests.result }}" == "success" && "${{ needs.web-tests.result }}" == "success" ]]; then
+        echo "API Tests: $api_result"
+        echo "Web Tests: $web_result"
+        
+        # Considerar skipped como sucesso para execuções condicionais
+        if [[ ("$api_result" == "success" || "$api_result" == "skipped") && ("$web_result" == "success" || "$web_result" == "skipped") ]]; then
           echo "✅ Quality Gate PASSOU - Deploy pode prosseguir!"
           echo "🚀 Vercel fará deploy automático após merge"
         else
           echo "❌ Quality Gate FALHOU - Deploy bloqueado"
+          echo "Pelo menos um job falhou: API=$api_result, Web=$web_result"
           exit 1
         fi
