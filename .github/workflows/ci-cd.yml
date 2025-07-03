@@ -48,8 +48,9 @@ jobs:
     - name: 🧪 Executar testes API
       run: |
         robot --outputdir results/api \
-              --include AUTH* --include MOV* --include RES* \
-              tests/api/
+              tests/api/auth_tests.robot \
+              tests/api/movies_tests.robot \
+              tests/api/reservations_tests.robot
               
     - name: 📊 Upload resultados API
       uses: actions/upload-artifact@v4
