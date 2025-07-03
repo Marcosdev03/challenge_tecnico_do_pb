@@ -25,7 +25,8 @@ jobs:
         
     - name: 🧪 Executar todos os testes
       run: |
-        robot --outputdir results tests/
+        robot --outputdir results tests/api/
+        xvfb-run -a robot --outputdir results --variable HEADLESS:true tests/web/
         
     - name: 📊 Verificar resultados
       run: |

@@ -5,7 +5,8 @@ Resource   ../../variables/api_variables.robot
 
 *** Keywords ***
 Iniciar Navegador
-    New Browser    chromium    headless=false
+    ${headless}=    Get Variable Value    ${HEADLESS}    false
+    New Browser    chromium    headless=${headless}
     New Context    viewport={'width': 1920, 'height': 1080}
     New Page    ${BASE_WEB_URL}
 

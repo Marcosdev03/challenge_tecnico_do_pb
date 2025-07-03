@@ -47,7 +47,9 @@ jobs:
         
     - name: 🧪 Executar testes API
       run: |
-        robot --outputdir results/api tests/api/
+        robot --outputdir results/api \
+              --include AUTH* --include MOV* --include RES* \
+              tests/api/
               
     - name: 📊 Upload resultados API
       uses: actions/upload-artifact@v4
@@ -80,7 +82,7 @@ jobs:
         
     - name: 🧪 Executar testes Web
       run: |
-        robot --outputdir results/web tests/web/
+        xvfb-run -a robot --outputdir results/web --variable HEADLESS:true tests/web/
               
     - name: 📊 Upload resultados Web
       uses: actions/upload-artifact@v4

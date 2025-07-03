@@ -49,7 +49,8 @@ jobs:
       run: |
         case "${{ github.event.inputs.test_type }}" in
           "all")
-            robot --outputdir results tests/
+            robot --outputdir results --include AUTH* --include MOV* --include RES* tests/api/
+            xvfb-run -a robot --outputdir results --variable HEADLESS:true tests/web/
             ;;
           "api-auth")
             robot --outputdir results --include AUTH* tests/api/
@@ -61,16 +62,16 @@ jobs:
             robot --outputdir results --include RES* tests/api/
             ;;
           "web-auth")
-            robot --outputdir results --include WEB-AUTH* tests/web/
+            xvfb-run -a robot --outputdir results --variable HEADLESS:true --include WEB-AUTH* tests/web/
             ;;
           "web-navigation")
-            robot --outputdir results --include WEB-NAV* tests/web/
+            xvfb-run -a robot --outputdir results --variable HEADLESS:true --include WEB-NAV* tests/web/
             ;;
           "web-booking")
-            robot --outputdir results --include WEB-BOOK* tests/web/
+            xvfb-run -a robot --outputdir results --variable HEADLESS:true --include WEB-BOOK* tests/web/
             ;;
           "web-profile")
-            robot --outputdir results --include WEB-PROF* tests/web/
+            xvfb-run -a robot --outputdir results --variable HEADLESS:true --include WEB-PROF* tests/web/
             ;;
         esac
         
